@@ -1,9 +1,11 @@
 # Podman related settings
-{ config, lib, ... }:
-let
-  cfg = config.my.system.podman;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.system.podman;
+in {
   options.my.system.podman = with lib; {
     enable = mkEnableOption "podman configuration";
   };

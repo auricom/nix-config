@@ -1,6 +1,6 @@
-{ lib, ... }:
-let
-  inherit (lib)
+{lib, ...}: let
+  inherit
+    (lib)
     filterAttrs
     foldl
     listToAttrs
@@ -8,8 +8,7 @@ let
     nameValuePair
     recursiveUpdate
     ;
-in
-{
+in {
   # Filter a generated set of attrs using a predicate function.
   #
   # mapFilterAttrs ::
@@ -31,14 +30,14 @@ in
   # merge ::
   #   [ attrs ]
   #   attrs
-  merge = foldl (a: b: a // b) { };
+  merge = foldl (a: b: a // b) {};
 
   # Merge a list of attrs recursively, later values override previous ones.
   #
   # recursiveMerge ::
   #   [ attrs ]
   #   attrs
-  recursiveMerge = foldl recursiveUpdate { };
+  recursiveMerge = foldl recursiveUpdate {};
 
   # Rename each of the attributes in an attribute set using the mapping function
   #

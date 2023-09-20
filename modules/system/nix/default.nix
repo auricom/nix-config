@@ -1,6 +1,12 @@
 # Nix related settings
-{ config, inputs, lib, options, pkgs, ... }:
-let
+{
+  config,
+  inputs,
+  lib,
+  options,
+  pkgs,
+  ...
+}: let
   cfg = config.my.system.nix;
 
   channels = lib.my.merge [
@@ -17,8 +23,7 @@ let
       nixpkgs = inputs.nixpkgs;
     })
   ];
-in
-{
+in {
   options.my.system.nix = with lib; {
     enable = my.mkDisableOption "nix configuration";
 
@@ -55,7 +60,7 @@ in
         package = pkgs.nix;
 
         settings = {
-          experimental-features = [ "nix-command" "flakes" ];
+          experimental-features = ["nix-command" "flakes"];
         };
       };
     }
@@ -77,31 +82,30 @@ in
     # })
 
     (lib.mkIf cfg.inputs.addToRegistry {
-      nix.registry =
-        let
-          makeEntry = v: { flake = v; };
-          makeEntries = lib.mapAttrs (lib.const makeEntry);
-        in
+      nix.registry = let
+        makeEntry = v: {flake = v;};
+        makeEntries = lib.mapAttrs (lib.const makeEntry);
+      in
         makeEntries channels;
     })
 
     (lib.mkIf cfg.inputs.link {
-      environment.etc =
-        let
-          makeLink = n: v: {
-            name = "nix/inputs/${n}";
-            value = { source = v.outPath; };
-          };
-          makeLinks = lib.mapAttrs' makeLink;
-        in
+      environment.etc = let
+        makeLink = n: v: {
+          name = "nix/inputs/${n}";
+          value = {source = v.outPath;};
+        };
+        makeLinks = lib.mapAttrs' makeLink;
+      in
         makeLinks channels;
     })
 
     (lib.mkIf cfg.inputs.addToNixPath {
-      nix.nixPath = [
-        "/etc/nix/inputs"
-      ]
-      ++ options.nix.nixPath.default;
+      nix.nixPath =
+        [
+          "/etc/nix/inputs"
+        ]
+        ++ options.nix.nixPath.default;
     })
   ]);
 }

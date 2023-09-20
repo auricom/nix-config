@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   # Make an email address from the name and domain stems
   #
   # mkMailAddress :: String -> String -> String

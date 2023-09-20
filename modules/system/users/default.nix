@@ -1,32 +1,36 @@
 # User setup
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   secrets = config.age.secrets;
   cfg = config.my.system.users;
   groupExists = grp: builtins.hasAttr grp config.users.groups;
   groupsIfExist = builtins.filter groupExists;
-in
-{
+in {
   options.my.system.users = with lib; {
     enable = my.mkDisableOption "user configuration";
   };
 
   config = lib.mkIf cfg.enable {
     users = {
-      mutableUsers = false; # I want it to be declarative.
+      mutableUsers = false;
 
       users = {
         root = {
           hashedPasswordFile = secrets."users/root/hashed-password".path;
         };
 
-        ${config.my.user.name} = {          
+        ${config.my.user.name} = {
           hashedPasswordFile = secrets."users/claude/hashed-password".path;
           description = "Claude";
           isNormalUser = true;
           shell = pkgs.fish;
           extraGroups = groupsIfExist [
             "audio" # sound control
+            "docker" # docker
             "media" # access to media files
             "networkmanager" # wireless configuration
             "plugdev" # usage of ZSA keyboard tools
@@ -34,17 +38,10 @@ in
             "video" # screen control
             "wheel" # `sudo` for the user.
           ];
-          openssh.authorizedKeys.keys = with builtins;
-            let
-              keyDir = ./ssh;
-              contents = readDir keyDir;
-              names = attrNames contents;
-              files = filter (name: contents.${name} == "regular") names;
-              keys = map (basename: readFile (keyDir + "/${basename}")) files;
-            in
-            keys;
         };
       };
     };
+
+    security.sudo.wheelNeedsPassword = false;
   };
 }

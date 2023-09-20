@@ -1,8 +1,6 @@
-{ ... }:
-
-{
+{...}: {
   imports = [
+    ./throttled
     ./tlp
-    # ./wireguard
   ];
 }

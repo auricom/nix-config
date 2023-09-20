@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  cfg = config.my.hardware.networking;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.hardware.networking;
+in {
   options.my.hardware.networking = with lib; {
     externalInterface = mkOption {
       type = types.nullOr types.str;

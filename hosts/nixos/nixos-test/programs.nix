@@ -1,0 +1,1 @@
+./../claude-laptop/programs.nix

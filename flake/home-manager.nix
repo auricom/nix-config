@@ -1,5 +1,10 @@
-{ self, inputs, lib, ... }:
-let
+{
+  config,
+  self,
+  inputs,
+  lib,
+  ...
+}: let
   defaultModules = [
     # Include generic settings
     "${self}/home"
@@ -16,44 +21,49 @@ let
     }
   ];
 
-  mkHome = name: system: inputs.home-manager.lib.homeManagerConfiguration {
-    # Work-around for home-manager
-    # * not letting me set `lib` as an extraSpecialArgs
-    # * not respecting `nixpkgs.overlays` [1]
-    # [1]: https://github.com/nix-community/home-manager/issues/2954
-    pkgs = import inputs.nixpkgs {
-      inherit system;
+  mkHome = name: system:
+    inputs.home-manager.lib.homeManagerConfiguration {
+      # Work-around for home-manager
+      # * not letting me set `lib` as an extraSpecialArgs
+      # * not respecting `nixpkgs.overlays` [1]
+      # [1]: https://github.com/nix-community/home-manager/issues/2954
+      pkgs = import inputs.nixpkgs {
+        inherit system;
 
-      overlays = (lib.attrValues self.overlays) ++ [
-        inputs.nur.overlay
-      ];
+        overlays =
+          (lib.attrValues self.overlays)
+          ++ [
+            inputs.nur.overlay
+          ];
+      };
+
+      modules =
+        defaultModules
+        ++ [
+          "${self}/hosts/homes/${name}"
+        ];
+
+      extraSpecialArgs = {
+        # Inject inputs to use them in global registry
+        inherit inputs;
+      };
     };
 
-    modules = defaultModules ++ [
-      "${self}/hosts/homes/${name}"
-    ];
-
-    extraSpecialArgs = {
-      # Inject inputs to use them in global registry
-      inherit inputs;
-    };
-  };
-
-  hosts = {
-  };
-in
-{
-  perSystem = { system, ... }: {
+  hosts = {};
+in {
+  perSystem = {system, ...}: {
     # Work-around for https://github.com/nix-community/home-manager/issues/3075
     legacyPackages = {
-      homeConfigurations =
-        let
-          filteredHosts = lib.filterAttrs (_: v: v == system) hosts;
-          allHosts = filteredHosts // {
+      homeConfigurations = let
+        filteredHosts = lib.filterAttrs (_: v: v == system) hosts;
+        allHosts =
+          filteredHosts
+          // {
             # Default configuration
             claude = system;
+            cdiarra = system;
           };
-        in
+      in
         lib.mapAttrs mkHome allHosts;
     };
   };

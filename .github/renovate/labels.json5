@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "labels": "renovate",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "addLabels": ["type/major"]
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "addLabels": ["type/minor"]
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "addLabels": ["type/patch"]
+    },
+    {
+      "matchUpdateTypes": ["digest"],
+      "addLabels": ["type/digest"]
+    },
+    {
+      "matchFileNames": ["**/*.nix"],
+      "addLabels": ["checksums_needed"]
+    },
+  ]
+}

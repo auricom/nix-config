@@ -13,6 +13,8 @@
       };
     };
 
+    agenix-rekey.url = "github:oddlama/agenix-rekey";
+
     flake-parts = {
       type = "github";
       owner = "hercules-ci";
@@ -64,6 +66,80 @@
         nixpkgs.follows = "nixpkgs";
         nixpkgs-stable.follows = "nixpkgs";
       };
+    };
+
+    alejandra = {
+      url = "github:kamadorueda/alejandra";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    # useful nushell scripts, such as auto_completion
+    nushell-scripts = {
+      url = "github:nushell/nu_scripts";
+      flake = false;
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    nixos-hardware = {
+      url = "github:nixos/nixos-hardware";
+    };
+
+    talhelper = {
+      url = "github:budimanjojo/talhelper";
+    };
+
+    # catppuccin
+    catppuccin-btop = {
+      url = "github:catppuccin/btop";
+      flake = false;
+    };
+
+    catppuccin-bat = {
+      url = "github:catppuccin/bat";
+      flake = false;
+    };
+
+    catppuccin-alacritty = {
+      url = "github:catppuccin/alacritty";
+      flake = false;
+    };
+
+    catppuccin-helix = {
+      url = "github:catppuccin/helix";
+      flake = false;
+    };
+
+    catppuccin-starship = {
+      url = "github:catppuccin/starship";
+      flake = false;
+    };
+
+    catppuccin-k9s = {
+      url = "github:catppuccin/k9s";
+      flake = false;
+    };
+
+    catppuccin-fish = {
+      url = "github:catppuccin/fish";
+      flake = false;
+    };
+
+    catppuccin-hyprland = {
+      url = "github:catppuccin/hyprland";
+      flake = false;
     };
   };
 

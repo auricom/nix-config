@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  cfg = config.my.profiles.laptop;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.profiles.laptop;
+in {
   options.my.profiles.laptop = with lib; {
     enable = mkEnableOption "laptop profile";
   };
@@ -13,6 +15,9 @@ in
 
     # Enable TLP power management
     my.services.tlp.enable = true;
+
+    # Enable throttled
+    my.services.throttled.enable = true;
 
     # Enable upower power management
     my.hardware.upower.enable = true;

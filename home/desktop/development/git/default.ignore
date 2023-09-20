@@ -1,0 +1,35 @@
+# Python files
+env/
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Swap and backup files
+*~
+~.swp
+
+# Direnv files
+.envrc
+.direnv/
+
+# Editors
+.vscode/
+
+# Trash
+.DS_Stpre
+Thumbs.db
+
+# Binaries
+bin
+*.iso
+
+# Temp
+.temp*
+.ignore/
+.logs/
+.task/
+
+# SOPS
+.decrypted~*
