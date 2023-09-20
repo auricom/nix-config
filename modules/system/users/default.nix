@@ -34,15 +34,6 @@ in
             "video" # screen control
             "wheel" # `sudo` for the user.
           ];
-          openssh.authorizedKeys.keys = with builtins;
-            let
-              keyDir = ./ssh;
-              contents = readDir keyDir;
-              names = attrNames contents;
-              files = filter (name: contents.${name} == "regular") names;
-              keys = map (basename: readFile (keyDir + "/${basename}")) files;
-            in
-            keys;
         };
       };
     };
