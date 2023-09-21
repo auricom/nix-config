@@ -6,7 +6,7 @@ in
   config = lib.mkIf cfg.enable {
     home.keyboard = {
       layout = "us";
-      variant = "intl";
+      variant = "";
     };
   };
 }

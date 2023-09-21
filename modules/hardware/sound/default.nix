@@ -50,6 +50,8 @@ in
           enable = true;
         };
       };
+      
+      hardware.pulseaudio.enable = false;
     })
 
     # Pulseaudio setup

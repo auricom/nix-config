@@ -6,10 +6,12 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/30c57d74-6f0e-44cc-9d28-800143768234";
+      device = "/dev/disk/by-uuid/fe074c6b-9bc0-4ed3-b83a-323344042dd5";
       fsType = "ext4";
     };
   };
 
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.x11 = true;
   # hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

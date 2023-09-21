@@ -18,7 +18,7 @@
   ];
 
   # Set your time zone.
-  time.timeZone = "Europe/London";
+  time.timeZone = "Europe/Paris";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -26,5 +26,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "20.09"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 }

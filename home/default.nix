@@ -5,11 +5,11 @@
     ./alacritty
     ./bluetooth
     ./git
-    # ./gtk
+    ./gtk
     ./packages
     ./power-alert
     ./starship
-    # ./x
+    ./x
   ];
 
   # First sane reproducible version

@@ -35,5 +35,6 @@ in
   flake.nixosConfigurations = lib.mapAttrs buildHost {
     claude-fixe = "x86_64-linux";
     claude-laptop = "x86_64-linux";
+    nixos-test = "x86_64-linux";
   };
 }
