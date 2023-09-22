@@ -1,16 +1,14 @@
-{ config, lib, options, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 let
-  cfg = config.my.home.kubernetes;
-  secrets = config.age.secrets;
+  cfg = config.my.home.kubernetes-client;
 in
 {
-  options.my.programs.kubernetes = with lib; {
-    enable = mkEnableOption "kubernetes configuration";
+  options.my.home.kubernetes-client = with lib; {
+    enable = mkEnableOption "kubernetes-client configuration";
   };
 
-  home.file".kube/config" = {
-    source = secrets."kubernetes-client/kubeconfig".path;
-    mode = "0644";
+  config.age.secrets."kubernetes-client/kubeconfig" = {
+    path = "$HOME/.kube/config";
   };
 
   config.home.packages = with pkgs; lib.mkIf cfg.enable [
