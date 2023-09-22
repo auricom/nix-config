@@ -2,13 +2,11 @@
 {
 
   imports = [
-    ./alacritty
     ./bluetooth
     ./git
     ./gtk
     ./packages
     ./power-alert
-    ./starship
     ./x
   ];
 

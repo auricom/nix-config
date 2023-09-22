@@ -12,7 +12,6 @@
     ./networking.nix
     ./profiles.nix
     ./programs.nix
-    # ./secrets.nix    
     ./services.nix
     ./sound.nix
   ];

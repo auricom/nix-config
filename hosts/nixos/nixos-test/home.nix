@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   my.home = {
+    git.enable = true;
     # Machine specific packages
     packages.additionalPackages = with pkgs; [
     # cli
@@ -42,7 +43,6 @@
     nix-output-monitor
     
     # dev/admin
-    git
     go-task
     jq
     pre-commit

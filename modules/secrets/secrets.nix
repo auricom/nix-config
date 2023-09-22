@@ -6,6 +6,6 @@ let
 in
 {
   "users/claude/hashed-password.age".publicKeys = all;
-  "users/claude/kubeconfig.age".publicKeys = all;
   "users/root/hashed-password.age".publicKeys = all;
+  "users/claude/kubeconfig.age".publicKeys = all;
 }
