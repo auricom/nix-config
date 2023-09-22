@@ -5,9 +5,10 @@
     ./bluetooth
     ./git
     ./gtk
-    ./kubernetes
+    ./kubernetes-client
     ./packages
     ./power-alert
+    ./secrets
     ./x
   ];
 

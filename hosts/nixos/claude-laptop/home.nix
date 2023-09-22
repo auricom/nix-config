@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
   my.home = {
+
+    # Kubernetes
+    kubernetes-client = true;
     # Machine specific packages
     packages.additionalPackages = with pkgs; [
     # cli
