@@ -5,6 +5,7 @@
     ./bluetooth
     ./git
     ./gtk
+    ./kubernetes
     ./packages
     ./power-alert
     ./x

@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   my.home = {
-    git.enable = true;
     # Machine specific packages
     packages.additionalPackages = with pkgs; [
     # cli
@@ -49,14 +48,6 @@
     yq-go
     
     # kubernetes
-    fluxcd
-    kubectl
-    kubeconform
-    kubernetes-helm
-    helm-docs
-    kustomize
-    openlens
-    popeye
     
     # python
     # unstable.python3Packages.comictagger
