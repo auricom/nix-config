@@ -2,14 +2,9 @@
 {
 
   imports = [
-    ./bluetooth
-    ./git
-    ./gtk
-    ./kubernetes-client
-    ./packages
-    ./power-alert
+    ./base
+    ./desktop
     ./secrets
-    ./x
   ];
 
   # First sane reproducible version

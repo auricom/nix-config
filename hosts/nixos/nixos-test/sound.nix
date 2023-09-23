@@ -1,8 +1,1 @@
-{ ... }:
-{
-  my.hardware.sound = {
-    pipewire = {
-      enable = true;
-    };
-  };
-}
+./../claude-laptop/sound.nix

@@ -6,6 +6,7 @@
     ./boot
     ./documentation
     ./language
+    ./nfs-client
     ./nix
     ./packages
     ./podman

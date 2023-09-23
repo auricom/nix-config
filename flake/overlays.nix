@@ -8,7 +8,7 @@ let
 
     # Expose my custom packages
     pkgs = _final: prev: {
-      ambroisie = prev.recurseIntoAttrs (import "${self}/pkgs" { pkgs = prev; });
+      auricom = prev.recurseIntoAttrs (import "${self}/pkgs" { pkgs = prev; });
     };
   };
 in

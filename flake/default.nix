@@ -16,7 +16,7 @@ flake-parts.lib.mkFlake { inherit inputs; } {
     ./lib.nix
     ./nixos.nix
     ./overlays.nix
-    # ./packages.nix
+    ./packages.nix
     ./templates.nix
   ];
 }

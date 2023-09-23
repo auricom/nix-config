@@ -1,1 +1,0 @@
-set -x KUBECONFIG /etc/agenix/kubeconfig

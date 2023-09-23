@@ -3,8 +3,10 @@
 {
   imports = [
     ./bluetooth
+    ./desktop-core
     ./devices
     ./gtk
+    ./homelab
     ./laptop
     ./x
   ];

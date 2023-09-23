@@ -1,7 +1,1 @@
-{ ... }:
-{
-  my.programs = {
-    # Steam configuration
-    steam.enable = true;
-  };
-}
+./../claude-laptop/programs.nix
