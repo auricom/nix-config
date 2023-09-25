@@ -9,13 +9,13 @@ in
 
   config = lib.mkIf cfg.enable {
 
-    xdg.configFile."alacritty/theme_catppuccin.yml".text = builtins.readFile # https://raw.githubusercontent.com/catppuccin/alacritty/main/catppuccin-frappe.yml
+    xdg.configFile."alacritty/theme_catppuccin.yml".text = builtins.readFile # https://raw.githubusercontent.com/catppuccin/alacritty/main/catppuccin-mocha.yml
         (pkgs.fetchFromGitHub {
           owner = "catppuccin";
           repo = "alacritty";
           rev = "3c808cbb4f9c87be43ba5241bc57373c793d2f17";
           sha256 = "07gvkxz9axvjjplpmwf6k0nk6n84gm20s0k5qkqsqkmv8ysdbmf3";
-        } + "/catppuccin-frappe.yml");
+        } + "/catppuccin-mocha.yml");
     programs.alacritty = {
       enable = true;
     };
@@ -83,12 +83,12 @@ in
       if pkgs.stdenv.isDarwin
       then ''
           # Point size
-          size: 14
+          size: 13
       ''
       else ''
         # holder identation
           # Point size
-          size: 12
+          size: 11
       ''
     );
   };

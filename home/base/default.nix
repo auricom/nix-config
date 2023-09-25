@@ -6,7 +6,7 @@
     ./btop
     ./fish
     ./nushell
-    ./packages  
+    ./packages
     ./starship
     ./zellij
   ];

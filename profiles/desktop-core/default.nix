@@ -20,6 +20,8 @@ in
     my.system.nfs-client.enable = true;
     # Enable productivity.
     my.home.productivity.enable = true;
+    # Enable Resilio
+    my.services.resilio-sync.enable = true;
     # Enable utils
     my.home.utils.enable = true;
   };

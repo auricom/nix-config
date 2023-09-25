@@ -14,7 +14,7 @@ in
 
       enableBashIntegration = true;
       enableFishIntegration = true;
-      
+
       settings = {
         character = {
           error_symbol = "[✖](bold red) ";
@@ -71,14 +71,14 @@ in
           style_user = "bold dimmed blue";
           show_always = false;
         };
-        palette = "catppuccin_frappe";
-      } // builtins.fromTOML (builtins.readFile # https://raw.githubusercontent.com/catppuccin/starship/main/palettes/frappe.toml
+        palette = "catppuccin_mocha";
+      } // builtins.fromTOML (builtins.readFile # https://raw.githubusercontent.com/catppuccin/starship/main/palettes/mocha.toml
         (pkgs.fetchFromGitHub {
           owner = "catppuccin";
           repo = "starship";
           rev = "5629d2356f62a9f2f8efad3ff37476c19969bd4f";
           sha256 = "1bdm1vzapbpnwjby51dys5ayijldq05mw4wf20r0jvaa072nxi4y";
-        } + "/palettes/frappe.toml"));
+        } + "/palettes/mocha.toml"));
     };
   };
 }

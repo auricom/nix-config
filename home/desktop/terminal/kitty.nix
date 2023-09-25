@@ -14,10 +14,10 @@ in
       # kitty has catppuccin theme built-in,
       # all the built-in themes are packaged into an extra package named `kitty-themes`
       # and it's installed by home-manager if `theme` is specified.
-      theme = "Catppuccin-Frappe";
+      theme = "Catppuccin-Mocha";
       font = {
         name = "FiraCode Nerd Font";
-        size = 13;
+        size = 11;
       };
 
       keybindings = {

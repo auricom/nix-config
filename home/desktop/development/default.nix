@@ -4,9 +4,10 @@ let
 in
 {
   imports = [
-    ./git.nix
+    ./git
+    ./vscodium.nix
   ];
-  
+
   options.my.home.development = with lib; {
     enable = mkEnableOption "development configuration";
   };
@@ -19,14 +20,10 @@ in
       pgcli
       pre-commit
       sops
-      # TODO unstable.python3Packages.pip
-      # TODO unstable.python3Packages.setuptools
-      # TODO unstable.python3Packages.virtualenvwrapper
-      vscodium
       yq-go
-      
+
       # python
-      pipenv
+      python311Packages.virtualenv
     ];
   };
 }

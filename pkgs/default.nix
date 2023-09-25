@@ -1,6 +1,6 @@
 { pkgs }:
 pkgs.lib.makeScope pkgs.newScope (pkgs: {
-  # ff2mpv-go = pkgs.callPackage ./ff2mpv-go { };
+  ff2mpv-go = pkgs.callPackage ./ff2mpv-go { };
 
   # talhelper = pkgs.callPackage ./talhelper { };
 })

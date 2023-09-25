@@ -4,7 +4,7 @@ let
 in
 {
   imports = [
-    ./resilio-sync.nix
+    ./discord.nix
   ];
 
   options.my.home.productivity = with lib; {
@@ -15,7 +15,6 @@ in
     home.packages = with pkgs; [
       _1password-gui
       bitwarden
-      discord
       joplin-desktop
     ];
   };

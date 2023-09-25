@@ -2,7 +2,7 @@
 let
   cfg = config.my.home.browsers;
   ff2mpv.enable = config.my.home.media.enable;
-  wayland = config.my.profiles.wayland;  
+  wayland = config.my.profiles.wayland;
 in
 {
 
@@ -13,7 +13,7 @@ in
     #   # TODO wayland = {
     #   # TODO   firefox-wayland = wayland.enable;
     #   # TODO };
-    # 
+    #
     #   extraNativeMessagingHosts = with pkgs; ([ ]
     #     # Watch videos using mpv
     #     ++ lib.mkIf (ff2mpv.enable) auricom.ff2mpv-go
@@ -53,6 +53,6 @@ in
           "ui.systemUsesDarkTheme" = true; # Dark mode
         };
       };
-    };    
+    };
   };
 }
