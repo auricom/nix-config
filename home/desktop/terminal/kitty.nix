@@ -16,7 +16,7 @@ in
       # and it's installed by home-manager if `theme` is specified.
       theme = "Catppuccin-Mocha";
       font = {
-        name = "FiraCode Nerd Font";
+        name = "Hack Nerd Font";
         size = 11;
       };
 

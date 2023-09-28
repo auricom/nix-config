@@ -12,7 +12,7 @@ in
 
   programs.git =  {
     enable = true;
-    
+
     # Who am I?
     userEmail = "27022259+auricom@users.noreply.github.com";
     userName = "auricom";
@@ -181,7 +181,7 @@ in
           insteadOf = "https://gitlab.com/";
         };
       };
-      
+
       user = {
         signingkey = "/home/claude/.ssh/id_ed25519";
       };

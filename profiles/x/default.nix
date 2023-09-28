@@ -23,9 +23,6 @@ in
     systemd.services."getty@tty1".enable = false;
     systemd.services."autovt@tty1".enable = false;
 
-    # Fonts
-    my.home.fonts.enable = true;
-
     # X configuration
     my.home.x.enable = true;
   };

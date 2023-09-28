@@ -3,6 +3,11 @@ let
   cfg = config.my.home.packages;
 in
 {
+    imports = [
+    ./lsd
+    ./neovim
+  ];
+
   options.my.home.packages = with lib; {
     enable = my.mkDisableOption "user packages";
 
@@ -21,10 +26,13 @@ in
     fd
     file
     fzf
-    lsd
     mosh
     ripgrep
-    
+    pv
+
+    # compilation
+    gcc
+
     # debug
     iotop # io monitoring
     iftop # network monitoring
@@ -32,14 +40,14 @@ in
     nmon
     stress
     s-tui
-    
+
     # system call monitoring
     strace # system call monitoring
     ltrace # library call monitoring
     bpftrace # powerful tracing tool
     tcpdump  # network sniffer
     lsof # list open files
-    
+
     # system tools
     sysstat
     lm_sensors # for `sensors` command

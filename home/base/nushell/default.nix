@@ -11,14 +11,9 @@ in
 
     programs.nushell = {
       enable = true;
-      configFile.source = ./config.nu;  
+      configFile.source = ./config.nu;
 
       shellAliases = {
-        k = "kubectl";
-        l = "lsd -alh";
-        ls = "lsd";
-        ll = "lsd -l";
-        cat = "bat --pager=never";
         vi = "nvim";
         vim = "nvim";
       };

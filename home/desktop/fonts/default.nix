@@ -12,12 +12,8 @@ in
     font-awesome
     material-design-icons
     # nerdfonts
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-      ];
-    })
+    (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" ]; })
   ];
-  
+
   config.fonts.fontconfig.enable = true;
 }

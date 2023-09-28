@@ -8,6 +8,7 @@
 
     initrd = {
       availableKernelModules = [
+        "acpi_call"
         "ahci"
         "sd_mod"
         "usb_storage"
@@ -25,6 +26,7 @@
     };
 
     kernelModules = [
+      "acpi_call"
       "kvm-intel"
     ];
     extraModulePackages = [ ];

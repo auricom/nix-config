@@ -13,7 +13,7 @@
     ./profiles.nix
     ./programs.nix
     ./secrets
-    # ./services.nix
+    ./services.nix
     ./sound.nix
   ];
 

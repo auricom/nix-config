@@ -17,9 +17,11 @@ in
       age
       gh
       jq
+      just
       pgcli
       pre-commit
       sops
+      treefmt
       yq-go
 
       # python

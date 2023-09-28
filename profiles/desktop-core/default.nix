@@ -12,6 +12,8 @@ in
     my.home.alacritty.enable = true;
     # Enable browsers
     my.home.browsers.enable = true;
+    # Enable fonts
+    my.home.fonts.enable = true;
     # Enable Kitty
     my.home.kitty.enable = true;
     # Enable media.

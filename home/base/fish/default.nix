@@ -11,9 +11,10 @@ in
 
     programs.fish = {
       enable = true;
-      
+
       interactiveShellInit = ''
         set fish_greeting # Disable greeting
+        set -x LS_COLORS $(vivid generate catppuccin-mocha)
       '';
 
       functions = {
@@ -87,16 +88,6 @@ in
         nh = "nix profile history --profile /nix/var/nix/profiles/system";
         ngc = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d";
         ngcf = "sudo nix store gc --debug";
-      };
-
-      shellAliases = {
-        k = "kubectl";
-        l = "lsd -alh";
-        ls = "lsd";
-        ll = "lsd -l";
-        cat = "bat --pager=never";
-        vi = "nvim";
-        vim = "nvim";
       };
     };
   };

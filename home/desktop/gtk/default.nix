@@ -12,27 +12,41 @@ in
       enable = true;
 
       font = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
+        package = pkgs.inter;
+        name = "Inter";
       };
 
-      gtk2 = {
-        # That sweet, sweet clean home that I am always aiming for...
-        configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
-      };
+      # TODO
 
-      iconTheme = {
-        package = pkgs.catppuccin-papirus-folders;
-        name = "Papirus-Dark";
-      };
+      # cursorTheme = {
+      #   name = "Catppuccin-Mocha-Lavender-Cursors";
+      #   package = pkgs.catppuccin-cursors.mochaLavender;
+      # };
 
-      theme = {
-        name = "Catppuccin-Macchiato-Standard-Sapphire-Dark";
-        package = pkgs.catppuccin-gtk.override {
-          accents = [ "sapphire" ];
-          variant = "macchiato";
-        };
-      };
+      # iconTheme = {
+      #   package = pkgs.catppuccin-papirus-folders;
+      #   name = "Papirus-Dark";
+      # };
+
+      # theme = {
+      #   name = "Catppuccin-Macchiato-Standard-Blue-Dark";
+      #   package = pkgs.catppuccin-gtk.override {
+      #     accents = [ "blue" ];
+      #     variant = "macchiato";
+      #   };
+      # };
+
+      # gtk3.extraConfig = {
+      #   Settings = ''
+      #     gtk-application-prefer-dark-theme=1
+      #   '';
+      # };
+
+      # gtk4.extraConfig = {
+      #   Settings = ''
+      #     gtk-application-prefer-dark-theme=1
+      #   '';
+      # };
     };
 
     home.packages = with pkgs; [
@@ -41,6 +55,7 @@ in
       gnomeExtensions.tray-icons-reloaded
       gnomeExtensions.user-themes
       gnomeExtensions.vitals
+      gtk-engine-murrine
     ];
   };
 }

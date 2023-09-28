@@ -14,6 +14,9 @@ in
     # Enable TLP power management
     my.services.tlp.enable = true;
 
+    # Enable throttled
+    my.services.throttled.enable = true;
+
     # Enable upower power management
     my.hardware.upower.enable = true;
 

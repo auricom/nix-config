@@ -2,8 +2,8 @@
 {
 
   config.my.services = {
-    # wireguard = {
-    #   enable = false;
-    # };
+    wireguard = {
+      enable = false;
+    };
   };
 }

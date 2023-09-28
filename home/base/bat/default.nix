@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.my.home.bat;
+  fish = config.my.home.fish;
+  nushell = config.my.home.nushell;
 in
 {
   options.my.home.bat = with lib; {
@@ -13,7 +15,7 @@ in
       enable = true;
       config = {
         pager = "less -FR";
-        theme = "Catppucin-mocha";
+        theme = "Catppuccin-mocha";
       };
       themes = {
 
@@ -30,5 +32,13 @@ in
     home.packages = with pkgs; [
       bat-extras.batgrep
     ];
+
+    programs.fish.shellAliases = lib.mkIf fish.enable {
+      cat = "bat --pager=never";
+    };
+
+    programs.nushell.shellAliases = lib.mkIf nushell.enable {
+      cat = "bat --pager=never";
+    };
   };
 }

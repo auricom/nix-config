@@ -65,6 +65,56 @@
         nixpkgs-stable.follows = "nixpkgs";
       };
     };
+
+    # https://aldoborrero.com/posts/2023/01/15/setting-up-my-machines-nix-style/
+
+    flake-root = {
+      type = "github";
+      owner = "srid";
+      repo = "flake-root";
+      ref = "master";
+    };
+
+    nixos-generators = {
+      type = "github";
+      owner = "nix-community";
+      repo = "nixos-generators";
+      ref = "master";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    treefmt-nix = {
+      type = "github";
+      owner = "numtide";
+      repo = "treefmt-nix";
+      ref = "main";
+    };
+
+    disko = {
+      type = "github";
+      owner = "nix-community";
+      repo = "disko";
+      ref = "master";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    nixos-hardware = {
+      type = "github";
+      owner = "nixos";
+      repo = "nixos-hardware";
+      ref = "master";
+    };
+
+    talhelper = {
+      type = "github";
+      owner = "budimanjojo";
+      repo = "talhelper";
+      ref = "master";
+    };
   };
 
   outputs = inputs: import ./flake inputs;
