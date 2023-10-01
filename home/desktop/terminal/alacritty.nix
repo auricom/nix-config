@@ -1,17 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 let
   cfg = config.my.home.terminal;
+  catppuccin-alacritty =  inputs.catppuccin-alacritty;
 in
 {
   config = lib.mkIf cfg.enable {
 
-    xdg.configFile."alacritty/theme_catppuccin.yml".text = builtins.readFile # https://raw.githubusercontent.com/catppuccin/alacritty/main/catppuccin-mocha.yml
-        (pkgs.fetchFromGitHub {
-          owner = "catppuccin";
-          repo = "alacritty";
-          rev = "3c808cbb4f9c87be43ba5241bc57373c793d2f17";
-          sha256 = "07gvkxz9axvjjplpmwf6k0nk6n84gm20s0k5qkqsqkmv8ysdbmf3";
-        } + "/catppuccin-mocha.yml");
+    xdg.configFile."alacritty/theme_catppuccin.yml".source = "${catppuccin-alacritty}/catppuccin-macchiato.yml";
     programs.alacritty = {
       enable = true;
     };

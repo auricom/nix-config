@@ -5,6 +5,5 @@
     ./resilio-sync
     ./throttled
     ./tlp
-    ./wireguard
   ];
 }

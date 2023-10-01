@@ -26,15 +26,10 @@ in
         # It has the same effect as adding cli option `ssh -A user@host`
         ForwardAgent yes
         IdentityFile ~/.ssh/id_ed25519
-        # Specifies that ssh should only use the identity file explicitly configured above
-        # required to prevent sending default identity files first.
         IdentitiesOnly yes
 
       Host github.com
-          # github is controlled by claude
-          IdentityFile ~/.ssh/claude
-          # Specifies that ssh should only use the identity file explicitly configured above
-          # required to prevent sending default identity files first.
+          IdentityFile ~/.ssh/id_ed25519
           IdentitiesOnly yes
 
       Host opnsense

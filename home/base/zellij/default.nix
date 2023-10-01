@@ -18,10 +18,10 @@ in
     '';
 
     home.sessionVariables = {
-      ZELLIJ_AUTO_ATTACH = "true";
+      ZELLIJ_AUTO_ATTACH = "false";
       ZELLIJ_AUTO_EXIT = "true";
     };
 
-    home.file.".config/zellij/config.kdl".source = ./config.kdl;
+    xdg.configFile."zellij/config.kdl".source = ./config.kdl;
   };
 }

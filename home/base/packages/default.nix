@@ -3,11 +3,6 @@ let
   cfg = config.my.home.packages;
 in
 {
-    imports = [
-    ./lsd
-    ./neovim
-  ];
-
   options.my.home.packages = with lib; {
     enable = my.mkDisableOption "user packages";
 
@@ -29,9 +24,6 @@ in
     mosh
     ripgrep
     pv
-
-    # editors
-    helix
 
     # compilation
     gcc
@@ -60,6 +52,15 @@ in
     hdparm # for disk performance, command
     dmidecode # a tool that reads information about your system's hardware from the BIOS according to the SMBIOS/DMI standard
   ] ++ cfg.additionalPackages);
+
+    config.home.sessionVariables = {
+      # Cattpuccin Macchiato - https://github.com/catppuccin/fzf
+      FZF_DEFAULT_OPTS = ''\
+        --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
+        --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+        --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796
+      '';
+    };
 
   # auto mount usb drives
   config.services = {
