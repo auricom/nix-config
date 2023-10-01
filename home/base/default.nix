@@ -5,6 +5,9 @@
     ./bat
     ./btop
     ./fish
+    ./helix
+    ./lsd
+    ./neovim
     ./nushell
     ./packages
     ./starship

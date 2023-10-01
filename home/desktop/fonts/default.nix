@@ -12,6 +12,7 @@ in
     font-awesome
     material-design-icons
     # nerdfonts
+    meslo-lgs-nf
     (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" ]; })
   ];
 

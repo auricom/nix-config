@@ -9,5 +9,5 @@ let
   ];
 in
 {
-  "wireguard/private-key.age".publicKeys = all;
+  "wireguard/wg.conf.age".publicKeys = all;
 }
