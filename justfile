@@ -1,22 +1,24 @@
 hostname := `hostname`
 
-
 agenix file:
   nix run github:ryantm/agenix -- -i ~/.ssh/agenix -e {{file}}
 
-flash-iso-image host:
+build host:
   set -euo pipefail
+  nix build ./#nixosConfigurations.{{host}}.config.system.build.toplevel
 
-  nix build ./#{{host}}
+iso host:
+  set -euo pipefail
+  nix build .#{{host}}-iso-image
 
-  iso="./result/iso/"
-  iso="$iso$(ls "$iso | ${pv}")"
-  dev="/dev/$(lsblk -d -n --output RM,NAME,FSTYPE,SIZE,LABEL,TYPE,VENDOR,UUID | awk '{if ($1 == 1) { print } }' | fzf | awk '{print $2}')"
-
-  pv -tpreb "$iso" | sudo dd bs=4M of="$dev" iflag=fullblock conv=notrunc,noerror oflag=sync
+check :
+  nix flake check
 
 fmt:
   treefmt
 
 rebuild:
   sudo nixos-rebuild switch --flake ./#{{hostname}}
+
+update :
+  nix flake update

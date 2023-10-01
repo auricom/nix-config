@@ -1,7 +1,5 @@
 { flake-parts
-, flake-root
 , futils
-, treefmt-nix
 , ...
 } @ inputs:
 let
@@ -11,11 +9,10 @@ flake-parts.lib.mkFlake { inherit inputs; } {
   systems = mySystems;
 
   imports = [
-    # treefmt-nix.flakeModule
-    flake-root.flakeModule
     ./apps.nix
     ./checks.nix
     ./dev-shells.nix
+    ./generators.nix
     ./home-manager.nix
     ./lib.nix
     ./nixos.nix

@@ -30,6 +30,9 @@ in
     ripgrep
     pv
 
+    # editors
+    helix
+
     # compilation
     gcc
 
