@@ -9,7 +9,7 @@ build host:
 
 iso host:
   set -euo pipefail
-  nix build .#{{host}}-iso-image
+  nix build .#{{host}}-iso
 
 check :
   nix flake check

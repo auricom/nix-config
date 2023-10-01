@@ -1,12 +1,8 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.my.home.kitty;
+  cfg = config.my.home.terminal;
 in
 {
-  options.my.home.kitty = with lib; {
-    enable = mkEnableOption "kitty configuration";
-  };
-
   config = lib.mkIf cfg.enable {
 
     programs.kitty = {

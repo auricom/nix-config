@@ -25,7 +25,7 @@ in
         # allow to securely use local SSH agent to authenticate on the remote machine.
         # It has the same effect as adding cli option `ssh -A user@host`
         ForwardAgent yes
-        IdentityFile ~/.ssh/id_25519
+        IdentityFile ~/.ssh/id_ed25519
         # Specifies that ssh should only use the identity file explicitly configured above
         # required to prevent sending default identity files first.
         IdentitiesOnly yes
@@ -40,7 +40,7 @@ in
       Host opnsense
         HostName 192.168.8.1
         Port 22
-      
+
       Host pikvm
         HostName 192.168.8.200
         Port 22
@@ -53,7 +53,7 @@ in
         HostName 10.10.0.20
         Port 22
         ForwardAgent yes
-        IdentityFile ~/.ssh/id_25519
+        IdentityFile ~/.ssh/id_ed25519
 
       Host coreelec
         HostName 192.168.9.60

@@ -1,12 +1,8 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.my.home.alacritty;
+  cfg = config.my.home.terminal;
 in
 {
-  options.my.home.alacritty = with lib; {
-    enable = mkEnableOption "alacritty configuration";
-  };
-
   config = lib.mkIf cfg.enable {
 
     xdg.configFile."alacritty/theme_catppuccin.yml".text = builtins.readFile # https://raw.githubusercontent.com/catppuccin/alacritty/main/catppuccin-mocha.yml

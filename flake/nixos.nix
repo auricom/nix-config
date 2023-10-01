@@ -16,6 +16,11 @@ let
     "${self}/modules"
     # Include bundles of settings
     "${self}/profiles"
+    ({...}: {
+      imports = [
+        inputs.disko.nixosModules.disko
+      ];
+    })
   ];
 
   buildHost = name: system: lib.nixosSystem {
