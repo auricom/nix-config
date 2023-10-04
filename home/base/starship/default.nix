@@ -77,7 +77,7 @@ in
           disabled = false;
           format = "[$time]]($style) ";
           time_format = "%T";
-        }
+        };
         palette = "catppuccin_macchiato";
       } // builtins.fromTOML (builtins.readFile "${catppuccin-starship}/palettes/macchiato.toml");
     };
