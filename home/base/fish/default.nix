@@ -7,6 +7,15 @@ let
 
   plugin-fzf-rev = "refs/tags/v9.9"; # renovate: datasource=github-tags depName=PatrickF1/fzf.fish versioning=loose
   plugin-fzf-sha256 = "bad_value"; # depName=PatrickF1/fzf.fish
+
+  plugin-autorepair-rev = "refs/tags/1.0.2"; # renovate: datasource=github-tags depName=jorgebucaran/autopair.fish versioning=semver
+  plugin-autorepair-sha256 = "bad_value"; # depName=jorgebucaran/autopair.fish
+
+  plugin-forgit-rev = "23.08.0"; # renovate: datasource=github-tags depName=wfxr/forgit versioning=semver
+  plugin-forgit-revsha256 = "bad_value"; # depName=wfxr/forgit
+
+  plugin-sponge-rev = "1.0.4"; # renovate: datasource=github-tags depName=meaningful-ooo/sponge versioning=semver
+  plugin-sponge-revsha256 = "bad_value"; # depName=meaningful-ooo/sponge
 in
 {
   options.my.home.fish = with lib; {
@@ -47,8 +56,8 @@ in
           src = pkgs.fetchFromGitHub {
             owner = "jorgebucaran";
             repo = "autopair.fish";
-            rev = "4d1752ff5b39819ab58d7337c69220342e9de0e2";
-            sha256 = "sha256-qt3t1iKRRNuiLWiVoiAYOu+9E7jsyECyIqZJ/oRIT1A=";
+            rev = "${plugin-autorepair-rev}";
+            sha256 = "${plugin-autorepair-sha256}";
           };
         }
         # Use git more efficiently with fzf
@@ -58,8 +67,8 @@ in
           src = pkgs.fetchFromGitHub {
             owner = "wfxr";
             repo = "forgit";
-            rev = "48e91dadb53f7ac33cab238fb761b18630b6da6e";
-            sha256 = "sha256-WvJxjEzF3vi+YPVSH3QdDyp3oxNypMoB71TAJ7D8hOQ=";
+            rev = "${plugin-forgit-rev}";
+            sha256 = "${plugin-forgit-sha256}";
           };
         }
         # Interactively find and insert file paths, git commit hashes, and other entities
@@ -90,20 +99,9 @@ in
           name = "sponge";
           src = pkgs.fetchFromGitHub {
             owner = "meaningful-ooo";
-            repo = "fish-sponge";
-            rev = "384299545104d5256648cee9d8b117aaa9a6d7be";
-            sha256 = "sha256-MdcZUDRtNJdiyo2l9o5ma7nAX84xEJbGFhAVhK+Zm1w=";
-          };
-        }
-        # z tracks the directories you visit. With a combination of frequency and recency, it enables you to jump to the directory in mind.
-        # https://github.com/jethrokuan/z
-        {
-          name = "z";
-          src = pkgs.fetchFromGitHub {
-            owner = "jethrokuan";
-            repo = "z";
-            rev = "85f863f20f24faf675827fb00f3a4e15c7838d76";
-            sha256 = "sha256-+FUBM7CodtZrYKqU542fQD+ZDGrd2438trKM0tIESs0=";
+            repo = "sponge";
+            rev = "${plugin-sponge-rev}";
+            sha256 = "${plugin-sponge-sha256}";
           };
         }
       ];
