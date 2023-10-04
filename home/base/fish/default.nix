@@ -6,7 +6,7 @@ let
   fish-kubectl-completions = inputs.fish-kubectl-completions;
 
   plugin-fzf-rev = "refs/tags/v10.0"; # renovate: datasource=github-tags depName=PatrickF1/fzf.fish versioning=loose
-  plugin-fzf-sha256 = "bad_value1"; # depName=PatrickF1/fzf.fish
+  plugin-fzf-sha256 = "sha256-CqRSkwNqI/vdxPKrShBykh+eHQq9QIiItD6jWdZ/DSM="; # depName=PatrickF1/fzf.fish
 
   plugin-autorepair-rev = "refs/tags/1.0.2"; # renovate: datasource=github-tags depName=jorgebucaran/autopair.fish versioning=semver
   plugin-autorepair-sha256 = "bad_value2"; # depName=jorgebucaran/autopair.fish
