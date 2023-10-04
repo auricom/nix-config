@@ -6,16 +6,16 @@ let
   fish-kubectl-completions = inputs.fish-kubectl-completions;
 
   plugin-fzf-rev = "refs/tags/v9.9"; # renovate: datasource=github-tags depName=PatrickF1/fzf.fish versioning=loose
-  plugin-fzf-sha256 = "bad_value"; # depName=PatrickF1/fzf.fish
+  plugin-fzf-sha256 = "sha256-s1o188TlwpUQEN3X5MxUlD/2CFCpEkWu83U9O+wg3VU="; # depName=PatrickF1/fzf.fish
 
   plugin-autorepair-rev = "refs/tags/1.0.4"; # renovate: datasource=github-tags depName=jorgebucaran/autopair.fish versioning=semver
-  plugin-autorepair-sha256 = "bad_value"; # depName=jorgebucaran/autopair.fish
+  plugin-autorepair-sha256 = "sha256-s1o188TlwpUQEN3X5MxUlD/2CFCpEkWu83U9O+wg3VU="; # depName=jorgebucaran/autopair.fish
 
   plugin-forgit-rev = "23.08.0"; # renovate: datasource=github-tags depName=wfxr/forgit versioning=semver
-  plugin-forgit-revsha256 = "bad_value"; # depName=wfxr/forgit
+  plugin-forgit-revsha256 = "sha256-s1o188TlwpUQEN3X5MxUlD/2CFCpEkWu83U9O+wg3VU="; # depName=wfxr/forgit
 
   plugin-sponge-rev = "1.0.4"; # renovate: datasource=github-tags depName=meaningful-ooo/sponge versioning=semver
-  plugin-sponge-revsha256 = "bad_value"; # depName=meaningful-ooo/sponge
+  plugin-sponge-revsha256 = "sha256-s1o188TlwpUQEN3X5MxUlD/2CFCpEkWu83U9O+wg3VU="; # depName=meaningful-ooo/sponge
 in
 {
   options.my.home.fish = with lib; {
