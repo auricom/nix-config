@@ -5,7 +5,7 @@ let
   fish-autorepair = inputs.fish-autorepair;
   fish-kubectl-completions = inputs.fish-kubectl-completions;
 
-  plugin-fzf-rev = "refs/tags/v9.9"; # renovate: datasource=github-tags depName=PatrickF1/fzf.fish versioning=loose
+  plugin-fzf-rev = "refs/tags/v10.0"; # renovate: datasource=github-tags depName=PatrickF1/fzf.fish versioning=loose
   plugin-fzf-sha256 = "bad_value"; # depName=PatrickF1/fzf.fish
 
   plugin-autorepair-rev = "refs/tags/1.0.2"; # renovate: datasource=github-tags depName=jorgebucaran/autopair.fish versioning=semver
