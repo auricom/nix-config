@@ -9,7 +9,7 @@ let
   plugin-fzf-sha256 = "bad_value1"; # depName=PatrickF1/fzf.fish
 
   plugin-autorepair-rev = "refs/tags/1.0.4"; # renovate: datasource=github-tags depName=jorgebucaran/autopair.fish versioning=semver
-  plugin-autorepair-sha256 = "bad_value2"; # depName=jorgebucaran/autopair.fish
+  plugin-autorepair-sha256 = "sha256-s1o188TlwpUQEN3X5MxUlD/2CFCpEkWu83U9O+wg3VU="; # depName=jorgebucaran/autopair.fish
 
   plugin-forgit-rev = "refs/tags/23.08.0"; # renovate: datasource=github-tags depName=wfxr/forgit versioning=semver
   plugin-forgit-sha256 = "bad_value3"; # depName=wfxr/forgit
