@@ -8,7 +8,7 @@ let
   plugin-fzf-rev = "refs/tags/v9.9"; # renovate: datasource=github-tags depName=PatrickF1/fzf.fish versioning=loose
   plugin-fzf-sha256 = "bad_value"; # depName=PatrickF1/fzf.fish
 
-  plugin-autorepair-rev = "refs/tags/1.0.2"; # renovate: datasource=github-tags depName=jorgebucaran/autopair.fish versioning=semver
+  plugin-autorepair-rev = "refs/tags/1.0.4"; # renovate: datasource=github-tags depName=jorgebucaran/autopair.fish versioning=semver
   plugin-autorepair-sha256 = "bad_value"; # depName=jorgebucaran/autopair.fish
 
   plugin-forgit-rev = "23.08.0"; # renovate: datasource=github-tags depName=wfxr/forgit versioning=semver
