@@ -14,8 +14,8 @@ let
   plugin-forgit-rev = "refs/tags/23.08.0"; # renovate: datasource=github-tags depName=wfxr/forgit versioning=semver
   plugin-forgit-sha256 = "bad_value3"; # depName=wfxr/forgit
 
-  plugin-sponge-rev = "refs/tags/1.0.4"; # renovate: datasource=github-tags depName=meaningful-ooo/sponge versioning=semver
-  plugin-sponge-sha256 = "bad_value4"; # depName=meaningful-ooo/sponge
+  plugin-sponge-rev = "refs/tags/1.1.0"; # renovate: datasource=github-tags depName=meaningful-ooo/sponge versioning=semver
+  plugin-sponge-sha256 = "sha256-MdcZUDRtNJdiyo2l9o5ma7nAX84xEJbGFhAVhK+Zm1w="; # depName=meaningful-ooo/sponge
 in
 {
   options.my.home.fish = with lib; {
