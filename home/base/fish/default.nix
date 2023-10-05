@@ -11,7 +11,7 @@ let
   plugin-fzf-rev = "refs/tags/v10.0"; # renovate: datasource=github-tags depName=PatrickF1/fzf.fish versioning=loose
   plugin-fzf-sha256 = "sha256-CqRSkwNqI/vdxPKrShBykh+eHQq9QIiItD6jWdZ/DSM="; # depName=PatrickF1/fzf.fish
 
-  plugin-kubectl-rev = "bbe3b831bcf8c0511fceb0607e4e7511c73e8c71";
+  plugin-kubectl-rev = "ced676392575d618d8b80b3895cdc3159be3f628";
   plugin-kubectl-sha256 = "bad_33"; # depName=evanlucas/fish-kubectl-completions
 
   plugin-sponge-rev = "refs/tags/1.1.0"; # renovate: datasource=github-tags depName=meaningful-ooo/sponge versioning=semver
