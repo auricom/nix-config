@@ -44,7 +44,7 @@ in
           symbol = " ";
         };
         git_branch = {
-          read_only = " ";
+          symbol = " ";
         };
         golang = {
           symbol = " ";
@@ -75,7 +75,7 @@ in
         };
         time = {
           disabled = false;
-          format = "[$time]]($style) ";
+          format = "[$time]($style) ";
           time_format = "%T";
         };
         palette = "catppuccin_macchiato";
