@@ -14,8 +14,8 @@
       "labels": ["type/patch"]
     },
     {
-      "matchDatasources": ["github-releases", "github-tags"],
-      "addLabels": ["renovate/github-release"]
+      "matchFileNames": ["*.nix"],
+      "addLabels": ["renovate/github"]
     },
     {
       "matchManagers": ["github-actions"],
