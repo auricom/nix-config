@@ -12,7 +12,7 @@ let
   plugin-fzf-sha256 = "sha256-CqRSkwNqI/vdxPKrShBykh+eHQq9QIiItD6jWdZ/DSM="; # depName=PatrickF1/fzf.fish
 
   plugin-kubectl-rev = "ced676392575d618d8b80b3895cdc3159be3f628"; # renovate datasource=git-refs depName=evanlucas/fish-kubectl-completions
-  plugin-kubectl-sha256 = "bad_33"; # depName=evanlucas/fish-kubectl-completions
+  plugin-kubectl-sha256 = "sha256-OYiYTW+g71vD9NWOcX1i2/TaQfAg+c2dJZ5ohwWSDCc="; # depName=evanlucas/fish-kubectl-completions
 
   plugin-sponge-rev = "refs/tags/1.1.0"; # renovate: datasource=github-tags depName=meaningful-ooo/sponge versioning=semver
   plugin-sponge-sha256 = "sha256-MdcZUDRtNJdiyo2l9o5ma7nAX84xEJbGFhAVhK+Zm1w="; # depName=meaningful-ooo/sponge
