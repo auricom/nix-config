@@ -26,7 +26,8 @@
       "customType": "regex",
       "fileMatch": ["(^|/)home/.+\\.nix$"],
       "matchStrings": [
-        "refs/tags/(?<currentValue>.*)\"; # renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) versioning=(?<versioning>.*?)"
+        "refs/tags/(?<currentValue>.*)\"; # renovate: datasource=github-tags depName=(?<depName>.*?) versioning=(?<versioning>.*?)",
+        "(?<currentValue>.*)\"; # renovate: datasource=github-releases depName=(?<depName>.*?) versioning=(?<versioning>.*?)"
       ]
     }
   ]
