@@ -5,14 +5,14 @@ let
   fish-autorepair = inputs.fish-autorepair;
   fish-kubectl-completions = inputs.fish-kubectl-completions;
 
-  plugin-fzf-rev = "refs/tags/v10.0"; # renovate: datasource=github-tags depName=PatrickF1/fzf.fish versioning=loose
-  plugin-fzf-sha256 = "sha256-CqRSkwNqI/vdxPKrShBykh+eHQq9QIiItD6jWdZ/DSM="; # depName=PatrickF1/fzf.fish
-
   plugin-autorepair-rev = "refs/tags/1.0.4"; # renovate: datasource=github-tags depName=jorgebucaran/autopair.fish versioning=semver
   plugin-autorepair-sha256 = "sha256-s1o188TlwpUQEN3X5MxUlD/2CFCpEkWu83U9O+wg3VU="; # depName=jorgebucaran/autopair.fish
 
-  plugin-forgit-rev = "refs/tags/23.08.0"; # renovate: datasource=github-releases depName=wfxr/forgit versioning=loose
-  plugin-forgit-sha256 = "bad_value3"; # depName=wfxr/forgit
+  plugin-fzf-rev = "refs/tags/v10.0"; # renovate: datasource=github-tags depName=PatrickF1/fzf.fish versioning=loose
+  plugin-fzf-sha256 = "sha256-CqRSkwNqI/vdxPKrShBykh+eHQq9QIiItD6jWdZ/DSM="; # depName=PatrickF1/fzf.fish
+
+  plugin-kubectl-rev = "bbe3b831bcf8c0511fceb0607e4e7511c73e8c71"; # renovate datasource=git-refs depName=evanlucas/fish-kubectl-completions
+  plugin-kubectl-sha256 = "bad_33"; # depName=evanlucas/fish-kubectl-completions
 
   plugin-sponge-rev = "refs/tags/1.1.0"; # renovate: datasource=github-tags depName=meaningful-ooo/sponge versioning=semver
   plugin-sponge-sha256 = "sha256-MdcZUDRtNJdiyo2l9o5ma7nAX84xEJbGFhAVhK+Zm1w="; # depName=meaningful-ooo/sponge
@@ -60,17 +60,6 @@ in
             sha256 = "${plugin-autorepair-sha256}";
           };
         }
-        # Use git more efficiently with fzf
-        # https://github.com/wfxr/forgit
-        {
-          name = "forgit";
-          src = pkgs.fetchFromGitHub {
-            owner = "wfxr";
-            repo = "forgit";
-            rev = "${plugin-forgit-rev}";
-            sha256 = "${plugin-forgit-sha256}";
-          };
-        }
         # Interactively find and insert file paths, git commit hashes, and other entities
         # https://github.com/PatrickF1/fzf.fish
         {
@@ -89,8 +78,8 @@ in
           src = pkgs.fetchFromGitHub {
             owner = "evanlucas";
             repo = "fish-kubectl-completions";
-            rev = "ced676392575d618d8b80b3895cdc3159be3f628";
-            sha256 = "sha256-OYiYTW+g71vD9NWOcX1i2/TaQfAg+c2dJZ5ohwWSDCc=";
+            rev = "${plugin-kubectl-rev}";
+            sha256 = "${plugin-kubectl-sha256}";
           };
         }
         # Clean fish history from typos automatically

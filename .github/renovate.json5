@@ -5,9 +5,9 @@
     ":dependencyDashboard",
     ":semanticCommits",
     ":enablePreCommit",
-    "github>auricom/home-ops//.github/renovate/autoMerge.json5",
-    "github>auricom/home-ops//.github/renovate/commitMessage.json5",
-    "github>auricom/home-ops//.github/renovate/labels.json5"
+    "github>auricom/nix-config//.github/renovate/autoMerge.json5",
+    "github>auricom/nix-config//.github/renovate/commitMessage.json5",
+    "github>auricom/nix-config//.github/renovate/labels.json5"
   ],
   "platform": "github",
   "username": "feisar-bot[bot]",
@@ -20,15 +20,22 @@
   "suppressNotifications": ["prIgnoreNotification"],
   "rebaseWhen": "conflicted",
   "commitBodyTable": true,
-  "commitMessagePrefix": "⬆️",
   "customManagers": [
     {
       "customType": "regex",
       "fileMatch": ["(^|/)home/.+\\.nix$"],
       "matchStrings": [
-        "refs/tags/(?<currentValue>.*)\"; # renovate: datasource=github-tags depName=(?<depName>.*?) versioning=(?<versioning>.*?)",
-        "(?<currentValue>.*)\"; # renovate: datasource=github-releases depName=(?<depName>.*?) versioning=(?<versioning>.*?)"
+        "refs/tags/(?<currentValue>.*)\"; # renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) versioning=(?<versioning>.*?)"
       ]
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)home/.+\\.nix$"],
+      "matchStrings": ["plugin-kubectl-rev = \"(?<currentDigest>.*?)\";"],
+      "currentValueTemplate": "main",
+      "depNameTemplate": "evanlucas/fish-kubectl-completions",
+      "packageNameTemplate": "https://github.com/evanlucas/fish-kubectl-completions",
+      "datasourceTemplate": "git-refs"
     }
   ]
 }
