@@ -66,6 +66,22 @@
       };
     };
 
+    # modern window compositor
+    hyprland.url = "github:hyprwm/Hyprland/v0.28.0";
+    # community wayland nixpkgs
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    # anyrun - a wayland launcher
+    anyrun = {
+      url = "github:Kirottu/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # useful nushell scripts, such as auto_completion
+    nushell-scripts = {
+      url = "github:nushell/nu_scripts";
+      flake = false;
+    };
+
     # https://aldoborrero.com/posts/2023/01/15/setting-up-my-machines-nix-style/
 
     flake-root = {
@@ -132,6 +148,11 @@
 
     catppuccin-fish = {
       url = "github:catppuccin/fish";
+      flake = false;
+    };
+
+    catppuccin-hyprland = {
+      url = "github:catppuccin/hyprland";
       flake = false;
     };
   };

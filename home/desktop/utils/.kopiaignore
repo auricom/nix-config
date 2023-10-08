@@ -15,7 +15,7 @@
 .config/Slack
 .dropbox*/
 .gvfs/
-.julia 
+.julia
 .librewolf
 .linuxbrew
 .local/bin

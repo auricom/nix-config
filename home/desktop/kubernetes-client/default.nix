@@ -13,26 +13,6 @@ in
 
   config = lib.mkIf cfg.enable {
 
-    # kubeconfig
-    age.secrets."kubernetes-client/kubeconfig" = {
-      path = "$HOME/.kube/config";
-    };
-
-    # minio-client
-    age.secrets."kubernetes-client/minioconfig.json" = {
-      path = "$HOME/.mc/config.json";
-    };
-
-    # rclone
-    age.secrets."kubernetes-client/rclone.conf" = {
-      path = "$HOME/.config/rclone/rclone.conf";
-    };
-
-    # talos
-    age.secrets."kubernetes-client/talosconfig" = {
-      path = "$HOME/.talos/config";
-    };
-
     home.packages = with pkgs; [
       fluxcd
       go-task

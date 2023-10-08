@@ -13,6 +13,7 @@
     ./profiles.nix
     ./programs.nix
     ./secrets
+    ./services.nix
     ./sound.nix
     ./wireguard-client.nix
   ];

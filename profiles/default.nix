@@ -5,8 +5,8 @@
     ./bluetooth
     ./desktop-core
     ./devices
+    ./kubeops
     ./gtk
-    ./homelab
     ./laptop
     ./ssd
     ./x

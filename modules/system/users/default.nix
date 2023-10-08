@@ -20,7 +20,7 @@ in
           hashedPasswordFile = secrets."users/root/hashed-password".path;
         };
 
-        ${config.my.user.name} = {          
+        ${config.my.user.name} = {
           hashedPasswordFile = secrets."users/claude/hashed-password".path;
           description = "Claude";
           isNormalUser = true;

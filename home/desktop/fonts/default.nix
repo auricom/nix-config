@@ -7,14 +7,18 @@ in
     enable = mkEnableOption "fonts configuration";
   };
 
-  config.home.packages = with pkgs; [
-    # icon fonts
-    font-awesome
-    material-design-icons
-    # nerdfonts
-    meslo-lgs-nf
-    (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" ]; })
-  ];
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      # icon fonts
+      font-awesome
+      material-design-icons
+      # nerdfonts
+      meslo-lgs-nf
+      (nerdfonts.override { fonts = [ "FiraCode" "Ubuntu" "UbuntuMono" ]; })
+    ];
 
-  config.fonts.fontconfig.enable = true;
+    # allow fontconfig to discover fonts and configurations installed through home.packages
+    fonts.fontconfig.enable = true;
+  };
+
 }

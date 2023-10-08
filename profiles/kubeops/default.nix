@@ -1,20 +1,18 @@
 { config, lib, pkgs, ... }:
 let
-  cfg = config.my.profiles.homelab;
+  cfg = config.my.profiles.kubeops;
 in
 {
-  options.my.profiles.homelab = with lib; {
-    enable = mkEnableOption "homelab profile";
+  options.my.profiles.kubeops = with lib; {
+    enable = mkEnableOption "kubeops profile";
   };
 
   config = lib.mkIf cfg.enable {
     # Enable development programs.
     my.home.development.enable = true;
-    # Enable Kubernetes clients & configuration.
+    # Enable Kubernetes clients.
     my.home.kubernetes-client.enable = true;
     # Enable podman
     my.system.podman.enable = true;
-    # Enable ssh client configuration
-    my.home.ssh-client.enable = true;
   };
 }

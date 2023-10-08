@@ -2,16 +2,18 @@
 {
 
   imports = [
+    ./aws-cli
     ./bluetooth
     ./browsers
     ./development
     ./fonts
     ./gtk
+    ./homelab
+    ./hyprland
     ./kubernetes-client
     ./media
     ./power-alert
     ./productivity
-    ./ssh-client
     ./terminal
     ./utils
     ./x

@@ -12,6 +12,7 @@
     ./packages
     ./starship
     ./zellij
+    ./zoxide
   ];
 
 }

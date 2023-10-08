@@ -16,37 +16,28 @@ in
         name = "Inter";
       };
 
-      # TODO
+      cursorTheme = {
+        name = "Bibata-Modern-Classic";
+        package = pkgs.bibata-cursors;
+      };
 
-      # cursorTheme = {
-      #   name = "Catppuccin-Mocha-Lavender-Cursors";
-      #   package = pkgs.catppuccin-cursors.mochaLavender;
-      # };
+      gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
 
-      # iconTheme = {
-      #   package = pkgs.catppuccin-papirus-folders;
-      #   name = "Papirus-Dark";
-      # };
+      iconTheme = {
+        package = pkgs.catppuccin-papirus-folders;
+        name = "Papirus-Dark";
+      };
 
-      # theme = {
-      #   name = "Catppuccin-Macchiato-Standard-Blue-Dark";
-      #   package = pkgs.catppuccin-gtk.override {
-      #     accents = [ "blue" ];
-      #     variant = "macchiato";
-      #   };
-      # };
-
-      # gtk3.extraConfig = {
-      #   Settings = ''
-      #     gtk-application-prefer-dark-theme=1
-      #   '';
-      # };
-
-      # gtk4.extraConfig = {
-      #   Settings = ''
-      #     gtk-application-prefer-dark-theme=1
-      #   '';
-      # };
+      theme = {
+        # https://github.com/catppuccin/gtk
+        name = "Catppuccin-Macchiato-Compact-Pink-dark";
+        package = pkgs.catppuccin-gtk.override {
+          # https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/data/themes/catppuccin-gtk/default.nix
+          accents = [ "blue" ];
+          size = "standard";
+          variant = "mocha";
+        };
+      };
     };
 
     home.packages = with pkgs; [
