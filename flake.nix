@@ -66,16 +66,6 @@
       };
     };
 
-    # modern window compositor
-    hyprland.url = "github:hyprwm/Hyprland/v0.28.0";
-    # community wayland nixpkgs
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
-    # anyrun - a wayland launcher
-    anyrun = {
-      url = "github:Kirottu/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # useful nushell scripts, such as auto_completion
     nushell-scripts = {
       url = "github:nushell/nu_scripts";

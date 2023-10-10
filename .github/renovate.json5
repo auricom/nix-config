@@ -36,6 +36,15 @@
       "depNameTemplate": "evanlucas/fish-kubectl-completions",
       "packageNameTemplate": "https://github.com/evanlucas/fish-kubectl-completions",
       "datasourceTemplate": "git-refs"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)home/.+\\.nix$"],
+      "matchStrings": ["plugin-breeze-rev = \"(?<currentDigest>.*?)\";"],
+      "currentValueTemplate": "main",
+      "depNameTemplate": "shinriyo/breeze",
+      "packageNameTemplate": "https://github.com/shinriyo/breeze",
+      "datasourceTemplate": "git-refs"
     }
   ]
 }

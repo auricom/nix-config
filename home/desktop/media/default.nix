@@ -17,6 +17,7 @@ in
       calibre
       # TODO comictagger
       deadbeef-with-plugins
+      flameshot
       mediainfo-gui
       picard
       pinta

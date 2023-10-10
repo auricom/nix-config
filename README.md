@@ -1,8 +1,9 @@
-# First install
+# NixOS First install
 
 - On a Nix host, Generate a custom NixOS ISO for a specific host `just iso <hostname>`
 - Deploy the `./result/iso/*.iso` on a Ventoy USB key
-- Deploy the agenix private key on `~/.ssh/agenix`
+- Connect on the openssh server ssh `root@<IP>`
+- Deploy the agenix private key on `/home/claude/.ssh/agenix`
 - Execute the `install-system` script to format the disk and install NixOS
 
 # Resources

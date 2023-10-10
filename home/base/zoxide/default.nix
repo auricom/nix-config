@@ -17,11 +17,15 @@ in
       zoxide
     ];
 
-    programs.fish.interactiveShellInit = lib.mkIf fish.enable "zoxide init fish | source";
+    programs.fish = lib.mkIf fish.enable {
+      interactiveShellInit = "zoxide init fish | source";
+      # shellAliases.cd = "z";
+    };
 
     programs.nushell = lib.mkIf nushell.enable {
       extraConfig = "source ~/.zoxide.nu";
       extraEnv = "zoxide init nushell | save -f ~/.zoxide.nu";
+      # shellAliases.cd = "z";
     };
   };
 }

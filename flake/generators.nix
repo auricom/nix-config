@@ -13,6 +13,7 @@
     defaultModule = {...}: {
       imports = [
         inputs.disko.nixosModules.disko
+        inputs.agenix.nixosModules.age
         ../generators/iso-base.nix
       ];
       _module.args.self = self;

@@ -9,7 +9,6 @@
     ./fonts
     ./gtk
     ./homelab
-    ./hyprland
     ./kubernetes-client
     ./media
     ./power-alert
