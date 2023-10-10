@@ -21,18 +21,18 @@ jobs:
 
           gh api -H "Accept: application/vnd.github+json" /repos/auricom/nix-config/issues/${{ github.event.pull_request.number }}/labels | jq '[.[].name]' > /tmp/label_list
 
-          if grep -q "renovate" /tmp/label_list; then
-            echo "check_renovate=true" >> $GITHUB_ENV
+          if grep -q "renovate/fetchFromGitHub" /tmp/label_list; then
+            echo "check_checksums=true" >> $GITHUB_ENV
           fi
       - name: Checkout
         uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
-        if: ${{ env.check_renovate == 'true' }}
+        if: ${{ env.check_checksums == 'true' }}
         with:
           fetch-depth: 0
           ref: ${{ github.ref }}
 
       - name: Find updated dependency
-        if: ${{ env.check_renovate == 'true' }}
+        if: ${{ env.check_checksums == 'true' }}
         run: |
           #!/usr/bin/env bash
 
@@ -46,7 +46,7 @@ jobs:
           echo "repo=$(echo "$dependency" | grep -o 'depName=[^ ]*' | cut -d= -f2)" >> $GITHUB_ENV
 
       - name: Download archive
-        if: ${{ env.check_renovate == 'true' }}
+        if: ${{ env.check_checksums == 'true' }}
         run: |
           #!/usr/bin/env bash
           set -euxo pipefail
@@ -58,7 +58,7 @@ jobs:
           ls -lrta
 
       - name: Get checksum
-        if: ${{ env.check_renovate == 'true' }}
+        if: ${{ env.check_checksums == 'true' }}
         uses: addnab/docker-run-action@v3
         with:
           registry: gcr.io
@@ -69,7 +69,7 @@ jobs:
             ls -l /work
 
       - name: Check if checksum must be updated
-        if: ${{ env.check_renovate == 'true' }}
+        if: ${{ env.check_checksums == 'true' }}
         run: |
           #!/usr/bin/env bash
           set -x
