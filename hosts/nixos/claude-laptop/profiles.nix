@@ -11,5 +11,7 @@
     ssd.enable = true;
     # X configuration
     x.enable = true;
+    # Wireguard-client configuration
+    wireguard-client-claude-laptop.enable = true;
   };
 }

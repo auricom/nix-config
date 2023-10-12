@@ -9,6 +9,7 @@
     ./gtk
     ./laptop
     ./ssd
+    ./wireguard-client
     ./x
   ];
 }

@@ -12,11 +12,13 @@
     ./networking.nix
     ./profiles.nix
     ./programs.nix
-    ./secrets
     ./services.nix
     ./sound.nix
-    ./wireguard-client.nix
   ];
+
+    age.identityPaths = [
+      /home/claude/.ssh/agenix
+    ];
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";

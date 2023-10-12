@@ -1,4 +1,4 @@
-{ config, inputs, lib, options, ... }:
+{ config, inputs, lib, pkgs, options, ... }:
 
 {
   imports = [
@@ -19,7 +19,7 @@
 
     # Add my usual agenix key to the defaults
     identityPaths = options.age.identityPaths.default ++ [
-      "${config.home.homeDirectory}/.ssh/agenix"
+      /home/claude/.ssh/agenix
     ];
   };
 }

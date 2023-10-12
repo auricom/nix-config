@@ -17,7 +17,7 @@
   ];
 
     age.identityPaths = [
-      "/home/claude/.ssh/agenix"
+      /home/claude/.ssh/agenix
     ];
 
   # Set your time zone.

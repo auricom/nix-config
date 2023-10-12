@@ -9,40 +9,45 @@
           type = "gpt";
           partitions = {
             ESP = {
-              priority = 1;
               name = "ESP";
-              start = "1M";
-              end = "128M";
+              size = "512M";
               type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [
+                  "defaults"
+                ];
               };
             };
-            root = {
+            luks = {
               size = "100%";
               content = {
-                type = "btrfs";
-                extraArgs = [ "-f" ]; # Override existing partition
-                # Subvolumes must set a mountpoint in order to be mounted,
-                # unless their parent is mounted
-                subvolumes = {
-                  # Subvolume name is different from mountpoint
-                  "/rootfs" = {
-                    mountpoint = "/";
-                  };
-                  # Subvolume name is the same as the mountpoint
-                  "/home" = {
-                    mountOptions = [ "compress=zstd" ];
-                    mountpoint = "/home";
-                  };
-                  # Sub(sub)volume doesn't need a mountpoint as its parent is mounted
-                  "/home/claude" = { };
-                  # Parent is not mounted so the mountpoint must be set
-                  "/nix" = {
-                    mountOptions = [ "compress=zstd" "noatime" ];
-                    mountpoint = "/nix";
+                type = "luks";
+                name = "crypted";
+                extraOpenArgs = [ "--allow-discards" ];
+                content = {
+                  type = "btrfs";
+                  extraArgs = [ "-f" ];
+                  subvolumes = {
+                    # Subvolume name is different from mountpoint
+                    "/root" = {
+                      mountpoint = "/";
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                    };
+                    # Subvolume name is the same as the mountpoint
+                    "/home" = {
+                      mountpoint = "/home";
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                    };
+                    # Sub(sub)volume doesn't need a mountpoint as its parent is mounted
+                    "/home/claude" = { };
+                    # Parent is not mounted so the mountpoint must be set
+                    "/nix" = {
+                      mountpoint = "/nix";
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                    };
                   };
                 };
               };

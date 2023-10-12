@@ -15,6 +15,7 @@
     ./productivity
     ./terminal
     ./utils
+    ./wireguard-client
     ./x
   ];
 

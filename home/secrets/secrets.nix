@@ -11,4 +11,5 @@ in
   "homelab/minioconfig.json.age".publicKeys = all;
   "homelab/rclone.conf.age".publicKeys = all;
   "homelab/talosconfig.age".publicKeys = all;
+  "wireguard/claude-laptop.conf.age".publicKeys = all;
 }
