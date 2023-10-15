@@ -13,8 +13,6 @@ in {
     partclone
     ntfsprogs
     ntfs3g
-    git
-    age
   ];
 
   # Use helix as the default editor

@@ -1,10 +1,10 @@
 # NixOS First install
 
-- On a Nix host, Generate a custom NixOS ISO for a specific host `just iso <hostname>`
-- Deploy the `./result/iso/*.iso` on a Ventoy USB key
-- Connect on the openssh server ssh `root@<IP>`
-- Deploy the agenix private key on `/home/claude/.ssh/agenix`
-- Execute the `install-system` script to format the disk and install NixOS
+- curl --silent --location https://raw.githubusercontent.com/auricom/nix-config/main/bootstrap.sh \
+  --output /tmp/bootstrap.sh
+- chmod +x /tmp/bootstrap.sh
+- /tmp/bootstrap.sh
+
 
 # Resources
 * [nixos-hardware](https://github.com/NixOS/nixos-hardware) - NixOS profiles to optimize settings for different hardware

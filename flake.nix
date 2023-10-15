@@ -66,18 +66,6 @@
       };
     };
 
-    # useful nushell scripts, such as auto_completion
-    nushell-scripts = {
-      url = "github:nushell/nu_scripts";
-      flake = false;
-    };
-
-    # https://aldoborrero.com/posts/2023/01/15/setting-up-my-machines-nix-style/
-
-    flake-root = {
-      url = "github:srid/flake-root";
-    };
-
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs = {
@@ -85,8 +73,10 @@
       };
     };
 
-    treefmt-nix = {
-      url = "github:numtide/treefmt-nix";
+    # useful nushell scripts, such as auto_completion
+    nushell-scripts = {
+      url = "github:nushell/nu_scripts";
+      flake = false;
     };
 
     disko = {

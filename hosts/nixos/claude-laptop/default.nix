@@ -16,9 +16,9 @@
     ./sound.nix
   ];
 
-    age.identityPaths = [
-      /home/claude/.ssh/agenix
-    ];
+    # age.identityPaths = [
+    #   /home/claude/.ssh/agenix
+    # ];
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
