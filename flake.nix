@@ -86,7 +86,6 @@
       };
     };
 
-    # TODO
     nixos-hardware = {
       url = "github:nixos/nixos-hardware";
     };

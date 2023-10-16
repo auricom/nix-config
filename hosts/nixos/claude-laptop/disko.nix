@@ -31,19 +31,26 @@
                   type = "btrfs";
                   extraArgs = [ "-f" ];
                   subvolumes = {
-                    # Subvolume name is different from mountpoint
                     "/root" = {
                       mountpoint = "/";
                       mountOptions = [ "compress=zstd" "noatime" ];
                     };
-                    # Subvolume name is the same as the mountpoint
                     "/home" = {
                       mountpoint = "/home";
                       mountOptions = [ "compress=zstd" "noatime" ];
                     };
-                    # Sub(sub)volume doesn't need a mountpoint as its parent is mounted
-                    "/home/claude" = { };
-                    # Parent is not mounted so the mountpoint must be set
+                    "/home/claude" = {
+                      mountpoint = "/home/claude";
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                    };
+                    "/etc" = {
+                      mountpoint = "/etc";
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                    };
+                    "/etc/agenix" = {
+                      mountpoint = "/etc/agenix";
+                      mountOptions = [ "compress=zstd" "noatime" ];
+                    };
                     "/nix" = {
                       mountpoint = "/nix";
                       mountOptions = [ "compress=zstd" "noatime" ];

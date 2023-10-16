@@ -20,5 +20,8 @@
         secrets = import ./secrets.nix;
       in
       lib.mapAttrs' convertSecrets secrets;
+    identityPaths = [
+      /etc/agenix/identity
+    ];
   };
 }

@@ -13,15 +13,15 @@ in
 
   config = lib.mkIf cfg.enable {
     users = {
-      mutableUsers = true;
+      mutableUsers = false;
 
       users = {
-        # root = {
-        #   hashedPasswordFile = secrets."users/root/hashed-password".path;
-        # };
+        root = {
+          hashedPasswordFile = secrets."users/root/hashed-password".path;
+        };
 
         ${config.my.user.name} = {
-          # hashedPasswordFile = secrets."users/claude/hashed-password".path;
+          hashedPasswordFile = secrets."users/claude/hashed-password".path;
           description = "Claude";
           isNormalUser = true;
           shell = pkgs.fish;

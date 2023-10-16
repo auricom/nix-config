@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ ... }:
+{ inputs, ... }:
 {
   imports = [
     ./boot.nix
@@ -14,11 +14,8 @@
     ./programs.nix
     ./services.nix
     ./sound.nix
+    inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480s
   ];
-
-    # age.identityPaths = [
-    #   /home/claude/.ssh/agenix
-    # ];
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";

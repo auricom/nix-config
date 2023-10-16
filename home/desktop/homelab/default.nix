@@ -18,6 +18,11 @@ in
       path = "$HOME/.kube/config";
     };
 
+    # sops (flux)
+    age.secrets."homelab/sops" = {
+      path = "$HOME/.config/sops/age/keys.txt";
+    };
+
     # minio-client
     age.secrets."homelab/minioconfig.json" = {
       path = "$HOME/.mc/config.json";

@@ -1,24 +1,11 @@
 hostname := `hostname`
 
 agenix file:
-  nix run github:ryantm/agenix -- -i ~/.ssh/agenix -e {{file}}
+  nix run github:ryantm/agenix -- -i ~/.ssh/id_ed25519 -e {{file}}
 
-build host:
+iso:
   set -euo pipefail
-  nix build ./#nixosConfigurations.{{host}}.config.system.build.toplevel
-
-iso host:
-  set -euo pipefail
-  nix build .#{{host}}-iso
+  nix build .#install-iso
 
 check :
   nix flake check
-
-fmt:
-  treefmt
-
-rebuild:
-  sudo nixos-rebuild switch --flake ./#{{hostname}}
-
-update :
-  nix flake update
