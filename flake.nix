@@ -13,6 +13,8 @@
       };
     };
 
+    agenix-rekey.url = "github:oddlama/agenix-rekey";
+
     flake-parts = {
       type = "github";
       owner = "hercules-ci";

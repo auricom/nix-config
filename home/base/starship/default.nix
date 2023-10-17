@@ -28,10 +28,10 @@ in
           full_symbol = "🔋";
           charging_symbol = "🔌";
           discharging_symbol = "⚡";
-          display = {
+          display = [{
             threshold = 30;
             style = "bold red";
-          };
+          }];
         };
         cmd_duration = {
           min_time = 10000; # Show command duration over 10,000 milliseconds (=10 sec)

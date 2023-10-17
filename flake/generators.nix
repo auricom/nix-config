@@ -76,7 +76,7 @@
                 echo "INFO - Done!"
               '';
             in {
-              environment.systemPackages = [
+              environment.systemPackages = with pkgs; [
                 unzip
                 install-system
               ];

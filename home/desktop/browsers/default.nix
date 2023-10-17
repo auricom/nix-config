@@ -5,9 +5,10 @@ in
 {
   imports = [
     ./chromium.nix
-    ./firefox.nix
+    # ./firefox.nix
+    ./librewolf.nix
   ];
-  
+
   options.my.home.browsers = with lib; {
     enable = mkEnableOption "browsers configuration";
   };
