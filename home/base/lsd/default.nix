@@ -1,10 +1,13 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.my.home.packages;
   fish = config.my.home.fish;
   nushell = config.my.home.nushell;
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       lsd

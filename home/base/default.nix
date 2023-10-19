@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-{
-
+{...}: {
   imports = [
     ./bat
     ./btop
@@ -14,5 +12,4 @@
     ./zellij
     ./zoxide
   ];
-
 }

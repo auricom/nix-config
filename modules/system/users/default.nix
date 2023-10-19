@@ -1,12 +1,15 @@
 # User setup
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   secrets = config.age.secrets;
   cfg = config.my.system.users;
   groupExists = grp: builtins.hasAttr grp config.users.groups;
   groupsIfExist = builtins.filter groupExists;
-in
-{
+in {
   options.my.system.users = with lib; {
     enable = my.mkDisableOption "user configuration";
   };

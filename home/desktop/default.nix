@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-{
-
+{...}: {
   imports = [
     ./aws-cli
     ./bluetooth
@@ -18,5 +16,4 @@
     ./wireguard-client
     ./x
   ];
-
 }

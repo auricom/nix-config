@@ -1,17 +1,20 @@
-{ config, lib, inputs, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  inputs,
+  pkgs,
+  ...
+}: let
   cfg = config.my.home.bat;
   catppuccin-bat = inputs.catppuccin-bat;
   fish = config.my.home.fish;
   nushell = config.my.home.nushell;
-in
-{
+in {
   options.my.home.bat = with lib; {
     enable = my.mkDisableOption "bat configuration";
   };
 
   config = lib.mkIf cfg.enable {
-
     programs.bat = {
       enable = true;
       config = {
@@ -19,7 +22,6 @@ in
         theme = "Catppuccin-macchiato";
       };
       themes = {
-
         Catppuccin-macchiato = builtins.readFile "${catppuccin-bat}/Catppuccin-macchiato.tmTheme";
       };
     };

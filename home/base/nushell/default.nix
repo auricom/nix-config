@@ -1,16 +1,18 @@
-{ config, lib, inputs, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  inputs,
+  ...
+}: let
   cfg = config.my.home.nushell;
 
   nushell-scripts = inputs.nushell-scripts;
-in
-{
+in {
   options.my.home.nushell = with lib; {
     enable = my.mkDisableOption "nushell configuration";
   };
 
   config = lib.mkIf cfg.enable {
-
     programs.nushell = {
       enable = true;
       configFile.source = ./config.nu;

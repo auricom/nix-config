@@ -1,9 +1,10 @@
-{ config, pkgs, lib, ... }:
-let
-  cfg = config.my.home.browsers;
-  secrets = config.age.secrets;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.home.browsers;
+in {
   config = lib.mkIf cfg.enable {
     programs.chromium = {
       enable = true;

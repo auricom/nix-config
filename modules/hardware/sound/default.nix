@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  cfg = config.my.hardware.sound;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.hardware.sound;
+in {
   options.my.hardware.sound = with lib; {
     pipewire = {
       enable = mkEnableOption "pipewire configuration";
@@ -13,7 +15,7 @@ in
     };
   };
 
-  config = (lib.mkMerge [
+  config = lib.mkMerge [
     # Sanity check
     {
       assertions = [
@@ -50,7 +52,7 @@ in
           enable = true;
         };
       };
-      
+
       hardware.pulseaudio.enable = false;
     })
 
@@ -61,5 +63,5 @@ in
 
       hardware.pulseaudio.enable = true;
     })
-  ]);
+  ];
 }

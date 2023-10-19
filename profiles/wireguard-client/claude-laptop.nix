@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  cfg = config.my.profiles.wireguard-client-claude-laptop;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.profiles.wireguard-client-claude-laptop;
+in {
   options.my.profiles.wireguard-client-claude-laptop = with lib; {
     enable = mkEnableOption "wireguard-client-claude-laptop profile";
   };

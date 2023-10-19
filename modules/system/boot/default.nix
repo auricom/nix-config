@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  cfg = config.my.system.boot;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.system.boot;
+in {
   options.my.system.boot = with lib; {
     tmp = {
       clean = mkEnableOption "clean `/tmp` on boot.";

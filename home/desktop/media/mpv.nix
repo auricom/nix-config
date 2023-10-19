@@ -1,8 +1,11 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.my.home.media;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.my.home.media;
+in {
   config = lib.mkIf cfg.enable {
     programs.mpv = {
       enable = true;

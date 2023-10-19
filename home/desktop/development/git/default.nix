@@ -1,13 +1,16 @@
-{ config, pkgs, lib, ... }:
-let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   cfg = config.my.home.development;
   fish = config.my.home.fish;
   nushell = config.my.home.nushell;
 
   plugin-breeze-rev = "7a4cd0abaf754a535155ff4ef24a169fc7c9b758"; # renovate datasource=git-refs depName=shinriyo/breeze
   plugin-breeze-sha256 = "sha256-efjpQebYhqXZHalmxGH2J0f080SZBSOMaLdt3Xz5dNs="; # depName=shinriyo/breeze
-in
-{
+in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       git-absorb
@@ -16,7 +19,7 @@ in
     ];
 
     programs = {
-      git =  {
+      git = {
         enable = true;
 
         # Who am I?
@@ -180,14 +183,13 @@ in
           };
         };
 
-        ignores =
-          let
-            inherit (builtins) readFile;
-            inherit (lib) filter hasPrefix splitString;
-            readLines = file: splitString "\n" (readFile file);
-            removeComments = filter (line: line != "" && !(hasPrefix "#" line));
-            getPaths = file: removeComments (readLines file);
-          in
+        ignores = let
+          inherit (builtins) readFile;
+          inherit (lib) filter hasPrefix splitString;
+          readLines = file: splitString "\n" (readFile file);
+          removeComments = filter (line: line != "" && !(hasPrefix "#" line));
+          getPaths = file: removeComments (readLines file);
+        in
           getPaths ./default.ignore;
       };
 

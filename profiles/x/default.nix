@@ -1,16 +1,18 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.my.profiles.x;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.my.profiles.x;
+in {
   options.my.profiles.x = with lib; {
     enable = mkEnableOption "X profile";
   };
 
   config = lib.mkIf cfg.enable {
-
     environment = {
-      systemPackages = [ pkgs.gnome.dconf-editor pkgs.gnome.networkmanager-openconnect ];
+      systemPackages = [pkgs.gnome.dconf-editor pkgs.gnome.networkmanager-openconnect];
       # ++ [
       #   pkgs.alacritty # pkgs.gnome-console
       #   pkgs.librewolf # pkgs.gnome.epiphany
@@ -56,13 +58,13 @@ in
       };
 
       # Get systray icons
-      udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+      udev.packages = with pkgs; [gnome.gnome-settings-daemon];
 
       xserver = {
         # Enable the X11 windowing system.
         enable = true;
 
-        excludePackages = [ pkgs.xterm ];
+        excludePackages = [pkgs.xterm];
 
         # Enable the GNOME Desktop Environment.
         displayManager.gdm.enable = true;

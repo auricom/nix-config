@@ -1,5 +1,8 @@
-{ self, inputs, ... }:
-let
+{
+  self,
+  inputs,
+  ...
+}: let
   inherit (self) lib;
 
   defaultModules = [
@@ -8,9 +11,11 @@ let
       system.configurationRevision = self.rev or "dirty";
     }
     {
-      nixpkgs.overlays = (lib.attrValues self.overlays) ++ [
-        inputs.nur.overlay
-      ];
+      nixpkgs.overlays =
+        (lib.attrValues self.overlays)
+        ++ [
+          inputs.nur.overlay
+        ];
     }
     # Include generic settings
     "${self}/modules"
@@ -23,20 +28,22 @@ let
     })
   ];
 
-  buildHost = name: system: lib.nixosSystem {
-    inherit system;
-    modules = defaultModules ++ [
-      "${self}/hosts/nixos/${name}"
-    ];
-    specialArgs = {
-      # Use my extended lib in NixOS configuration
-      inherit lib;
-      # Inject inputs to use them in global registry
-      inherit inputs;
+  buildHost = name: system:
+    lib.nixosSystem {
+      inherit system;
+      modules =
+        defaultModules
+        ++ [
+          "${self}/hosts/nixos/${name}"
+        ];
+      specialArgs = {
+        # Use my extended lib in NixOS configuration
+        inherit lib;
+        # Inject inputs to use them in global registry
+        inherit inputs;
+      };
     };
-  };
-in
-{
+in {
   flake.nixosConfigurations = lib.mapAttrs buildHost {
     # claude-fixe = "x86_64-linux";
     claude-laptop = "x86_64-linux";

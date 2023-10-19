@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.my.home.homelab;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.home.homelab;
+in {
   config.programs.ssh = lib.mkIf cfg.enable {
     enable = true;
 

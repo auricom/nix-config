@@ -1,7 +1,5 @@
 # Hardware-related modules
-{ ... }:
-
-{
+{...}: {
   imports = [
     ./bluetooth
     ./firmware

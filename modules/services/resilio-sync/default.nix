@@ -1,10 +1,12 @@
 # Resilio-Sync
-{ config, lib, ... }:
-let
+{
+  config,
+  lib,
+  ...
+}: let
   cfg = config.my.services.resilio-sync;
   hostName = config.networking.hostName;
-in
-{
+in {
   options.my.services.resilio-sync = {
     enable = lib.mkEnableOption "Resilio Sync configuration";
   };

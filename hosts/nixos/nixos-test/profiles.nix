@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   my.profiles = {
     # Desktop-core
     desktop-core.enable = true;

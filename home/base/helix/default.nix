@@ -1,11 +1,14 @@
-{ config, inputs, lib, pkgs, ... }:
-let
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.my.home.packages;
   catppuccin-helix = inputs.catppuccin-helix;
-in
-{
+in {
   config = lib.mkIf cfg.enable {
-  
     xdg.configFile."helix/themes".source = "${catppuccin-helix}/Catppuccin-macchiato.tmTheme";
 
     programs.helix = {
@@ -29,9 +32,9 @@ in
           space.space = "file_picker";
           space.w = ":w";
           space.q = ":q";
-          esc = [ "collapse_selection" "keep_primary_selection" ];
+          esc = ["collapse_selection" "keep_primary_selection"];
         };
-      };  
+      };
     };
   };
 }

@@ -1,24 +1,27 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.my.home.gtk;
 
   catppuccin_dark_name = "Catppuccin-Mocha-Standard-Blue-Dark";
   # https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/data/themes/catppuccin-gtk/default.nix
   catppucin_dark_package = pkgs.catppuccin-gtk.override {
-    accents = [ "blue" ];
+    accents = ["blue"];
     size = "standard";
-    tweaks = [ "normal" ];
+    tweaks = ["normal"];
     variant = "mocha";
   };
   catppuccin_light_name = "Catppuccin-Latte-Standard-Blue-Light";
   catppuccin_light_package = pkgs.catppuccin-gtk.override {
-    accents = [ "blue" ];
+    accents = ["blue"];
     size = "standard";
-    tweaks = [ "normal" ];
+    tweaks = ["normal"];
     variant = "latte";
   };
-in
-{
+in {
   options.my.home.gtk = with lib; {
     enable = mkEnableOption "GTK configuration";
   };

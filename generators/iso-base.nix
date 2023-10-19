@@ -1,5 +1,8 @@
-{ inputs, lib, pkgs, ...}:
-let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   inherit (lib) mapAttrs' nameValuePair mkForce;
   keys = import ../keys;
 in {

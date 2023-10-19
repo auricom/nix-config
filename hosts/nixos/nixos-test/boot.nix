@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   boot = {
     loader = {
       grub = {
@@ -19,6 +18,6 @@
         "sr_mod"
       ];
     };
-    extraModulePackages = [ ];
+    extraModulePackages = [];
   };
 }

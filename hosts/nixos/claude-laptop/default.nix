@@ -1,9 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ inputs, ... }:
-{
+{inputs, ...}: {
   imports = [
     ./boot.nix
     ./disko.nix
@@ -21,7 +19,7 @@
     # Obtain this using `ssh-keyscan` or by looking it up in your ~/.ssh/known_hosts
     hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRZVQ23ywGUy4PGssAVTlUt8a49FIpFDrW8VG2HWpqV";
     # The path to the master identity used for decryption. See the option's description for more information.
-    masterIdentities = [ /home/claude/.ssh/id_ed25519 ];
+    masterIdentities = [/home/claude/.ssh/id_ed25519];
   };
 
   # Set your time zone.

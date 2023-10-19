@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.my.profiles.kubeops;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.profiles.kubeops;
+in {
   options.my.profiles.kubeops = with lib; {
     enable = mkEnableOption "kubeops profile";
   };

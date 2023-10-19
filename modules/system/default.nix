@@ -1,7 +1,5 @@
 # System-related modules
-{ ... }:
-
-{
+{...}: {
   imports = [
     ./boot
     ./documentation

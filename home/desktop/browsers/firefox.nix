@@ -1,11 +1,12 @@
-{ config, inputs, pkgs, lib, ... }:
-let
-  cfg = config.my.home.browsers;
-  ff2mpv.enable = config.my.home.media.enable;
-  wayland = config.my.profiles.wayland;
-in
 {
-
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.home.browsers;
+  # ff2mpv.enable = config.my.home.media.enable;
+  # wayland = config.my.profiles.wayland;
+in {
   config.programs.firefox = lib.mkIf cfg.enable {
     enable = true;
 

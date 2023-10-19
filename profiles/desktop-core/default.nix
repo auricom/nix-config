@@ -1,8 +1,10 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.my.profiles.desktop-core;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.profiles.desktop-core;
+in {
   options.my.profiles.desktop-core = with lib; {
     enable = mkEnableOption "desktop-core profile";
   };

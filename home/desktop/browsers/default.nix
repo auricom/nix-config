@@ -1,8 +1,4 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.my.home.browsers;
-in
-{
+{lib, ...}: {
   imports = [
     ./chromium.nix
     # ./firefox.nix
@@ -12,5 +8,4 @@ in
   options.my.home.browsers = with lib; {
     enable = mkEnableOption "browsers configuration";
   };
-
 }

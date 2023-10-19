@@ -1,5 +1,10 @@
-{ config, inputs, lib, pkgs, ... }:
-let
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.my.home.kubernetes-client;
   catppuccin-k9s = inputs.catppuccin-k9s;
   fish = config.my.home.fish;
@@ -8,14 +13,12 @@ let
 
   plugin-kubectl-rev = "ced676392575d618d8b80b3895cdc3159be3f628"; # renovate datasource=git-refs depName=evanlucas/fish-kubectl-completions
   plugin-kubectl-sha256 = "sha256-OYiYTW+g71vD9NWOcX1i2/TaQfAg+c2dJZ5ohwWSDCc="; # depName=evanlucas/fish-kubectl-completions
-in
-{
+in {
   options.my.home.kubernetes-client = with lib; {
     enable = mkEnableOption "kubernetes-client configuration";
   };
 
   config = lib.mkIf cfg.enable {
-
     home.packages = with pkgs; [
       fluxcd
       go-task
@@ -32,23 +35,23 @@ in
     ];
 
     programs = {
-
       k9s = {
         enable = true;
-        skin =
-          let skin_file = "${catppuccin-k9s}/dist/macchiato.yml"; # theme - catppuccin mocha
-          skin_attr = builtins.fromJSON (builtins.readFile
-          # replace 'base: &base "#1e1e2e"' with 'base: &base "default"'
-          # to make fg/bg color transparent. "default" means transparent in k9s skin.
-          (pkgs.runCommandCC "get-skin-json" {} ''
-            cat ${skin_file} \
-              | sed -E 's@(base: &base ).+@\1 "default"@g' \
-              | ${pkgs.yj}/bin/yj > $out
+        skin = let
+          skin_file = "${catppuccin-k9s}/dist/macchiato.yml"; # theme - catppuccin mocha
+          skin_attr = builtins.fromJSON (
+            builtins.readFile
+            # replace 'base: &base "#1e1e2e"' with 'base: &base "default"'
+            # to make fg/bg color transparent. "default" means transparent in k9s skin.
+            (pkgs.runCommandCC "get-skin-json" {} ''
+              cat ${skin_file} \
+                | sed -E 's@(base: &base ).+@\1 "default"@g' \
+                | ${pkgs.yj}/bin/yj > $out
             '')
-            );
-          in
-            skin_attr;
-        };
+          );
+        in
+          skin_attr;
+      };
 
       fish = lib.mkIf fish.enable {
         shellAliases.k = "kubectl";
@@ -70,7 +73,5 @@ in
 
       nushell.shellAliases.k = lib.mkIf nushell.enable "kubectl";
     };
-
-
   };
 }

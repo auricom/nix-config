@@ -1,9 +1,12 @@
-{ config, inputs, lib, pkgs, ... }:
-let
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.my.home.fish;
   catppuccin-fish = inputs.catppuccin-fish;
-  fish-autorepair = inputs.fish-autorepair;
-  fish-kubectl-completions = inputs.fish-kubectl-completions;
 
   plugin-autorepair-rev = "refs/tags/1.0.4"; # renovate: datasource=github-tags depName=jorgebucaran/autopair.fish versioning=semver
   plugin-autorepair-sha256 = "sha256-s1o188TlwpUQEN3X5MxUlD/2CFCpEkWu83U9O+wg3VU="; # depName=jorgebucaran/autopair.fish
@@ -13,14 +16,14 @@ let
 
   plugin-sponge-rev = "refs/tags/1.1.0"; # renovate: datasource=github-tags depName=meaningful-ooo/sponge versioning=semver
   plugin-sponge-sha256 = "sha256-MdcZUDRtNJdiyo2l9o5ma7nAX84xEJbGFhAVhK+Zm1w="; # depName=meaningful-ooo/sponge
-in
-{
+in {
   options.my.home.fish = with lib; {
     enable = my.mkDisableOption "fish configuration";
+    # https://github.com/NixOS/nixpkgs/issues/261777
+    vendor.config.enable = false;
   };
 
   config = lib.mkIf cfg.enable {
-
     xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source = "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
 
     programs.fish = {
@@ -33,17 +36,17 @@ in
 
       functions = {
         git-clean = ''
-            git fetch --prune
-            for branch in (git branch -vv | grep ': gone]' | awk '{print $1}')
-                git branch -D $branch
-            end
-          '';
+          git fetch --prune
+          for branch in (git branch -vv | grep ': gone]' | awk '{print $1}')
+              git branch -D $branch
+          end
+        '';
         wip = ''
           git add -A
           git commit --amend --no-edit
           git push --force
         '';
-        };
+      };
 
       plugins = [
         # Auto-complete matching pairs in the Fish command line

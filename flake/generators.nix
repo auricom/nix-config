@@ -1,11 +1,12 @@
-{ self, inputs, lib, ... }: {
-  perSystem = {
-    self',
-    pkgs,
-    ...
-  }: let
+{
+  self,
+  inputs,
+  lib,
+  ...
+}: {
+  perSystem = {pkgs, ...}: let
     inherit (inputs) nixos-generators;
-    inherit (lib) mapAttrs' nameValuePair mkForce;
+    inherit (lib) mkForce;
     keys = import ../keys;
 
     defaultModule = {...}: {
@@ -22,8 +23,8 @@
         format = "install-iso";
         modules = [
           defaultModule
-          ({ config, lib, pkgs, self, ...}:
-            let
+          (
+            {pkgs, ...}: let
               install-system = pkgs.writeShellScriptBin "install-system" ''
                 set -euo pipefail
 

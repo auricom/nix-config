@@ -1,8 +1,11 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.my.hardware.bluetooth;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.my.hardware.bluetooth;
+in {
   options.my.hardware.bluetooth = with lib; {
     enable = mkEnableOption "bluetooth configuration";
 
@@ -21,7 +24,7 @@ in
     # Support for additional bluetooth codecs
     (lib.mkIf cfg.loadExtraCodecs {
       hardware.pulseaudio = {
-        extraModules = [ pkgs.pulseaudio-modules-bt ];
+        extraModules = [pkgs.pulseaudio-modules-bt];
         package = pkgs.pulseaudioFull;
       };
 

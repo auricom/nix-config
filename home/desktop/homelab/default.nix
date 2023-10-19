@@ -1,8 +1,10 @@
-{ config, inputs, lib, pkgs, ... }:
-let
-  cfg = config.my.home.homelab;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.home.homelab;
+in {
   imports = [
     ./ssh-client.nix
   ];
@@ -12,7 +14,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-
     # kubeconfig
     age.secrets."homelab/kubeconfig" = {
       path = "$HOME/.kube/config";

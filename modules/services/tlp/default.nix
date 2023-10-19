@@ -1,9 +1,11 @@
 # TLP power management
-{ config, lib, ... }:
-let
-  cfg = config.my.services.tlp;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.services.tlp;
+in {
   options.my.services.tlp = {
     enable = lib.mkEnableOption "TLP power management configuration";
   };

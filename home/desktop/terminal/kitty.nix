@@ -1,10 +1,11 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.my.home.terminal;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.home.terminal;
+in {
   config = lib.mkIf cfg.enable {
-
     programs.kitty = {
       enable = true;
       # kitty has catppuccin theme built-in,
@@ -13,7 +14,7 @@ in
       theme = "Catppuccin-Macchiato";
       font = {
         name = "FiraCode Nerd Font";
-        size = 11;
+        size = 10;
       };
 
       keybindings = {
@@ -21,10 +22,11 @@ in
       };
 
       settings = {
-        background_opacity = "0.93";
+        background_opacity = "1";
+        hide_window_decorations = true;
         scrollback_lines = 10000;
         enable_audio_bell = false;
-        tab_bar_edge = "top";     # tab bar on top
+        tab_bar_edge = "top"; # tab bar on top
       };
     };
   };

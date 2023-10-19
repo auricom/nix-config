@@ -1,8 +1,12 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.my.home.development;
-in
 {
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.my.home.development;
+in {
   imports = [
     ./git
     ./vscodium.nix
@@ -26,6 +30,11 @@ in
 
       # python
       python311Packages.virtualenv
+
+      # formaters
+      deadnix
+      rustup
+      inputs.alejandra.defaultPackage.x86_64-linux
     ];
   };
 }

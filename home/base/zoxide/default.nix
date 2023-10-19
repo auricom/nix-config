@@ -1,18 +1,19 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.my.home.zoxide;
 
   fish = config.my.home.fish;
   nushell = config.my.home.nushell;
-in
-
-{
+in {
   options.my.home.zoxide = with lib; {
     enable = my.mkDisableOption "zoxide configuration";
   };
 
   config = lib.mkIf cfg.enable {
-
     home.packages = with pkgs; [
       zoxide
     ];

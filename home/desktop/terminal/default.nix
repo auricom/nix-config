@@ -1,8 +1,4 @@
-{ config, lib, pkgs, ... }:
-let
-  cfg = config.my.home.terminal;
-in
-{
+{lib, ...}: {
   imports = [
     ./alacritty.nix
     ./kitty.nix

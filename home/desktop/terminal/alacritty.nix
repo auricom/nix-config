@@ -1,11 +1,14 @@
-{ config, inputs, lib, pkgs, ... }:
-let
-  cfg = config.my.home.terminal;
-  catppuccin-alacritty =  inputs.catppuccin-alacritty;
-in
 {
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.my.home.terminal;
+  catppuccin-alacritty = inputs.catppuccin-alacritty;
+in {
   config = lib.mkIf cfg.enable {
-
     xdg.configFile."alacritty/theme_catppuccin.yml".source = "${catppuccin-alacritty}/catppuccin-macchiato.yml";
     programs.alacritty = {
       enable = true;
@@ -70,17 +73,17 @@ in
             # value specified for the normal font.
             family: FiraCode Nerd Font
       ''
-    + (
-      if pkgs.stdenv.isDarwin
-      then ''
+      + (
+        if pkgs.stdenv.isDarwin
+        then ''
           # Point size
           size: 13
-      ''
-      else ''
-        # holder identation
-          # Point size
-          size: 11
-      ''
-    );
+        ''
+        else ''
+          # holder identation
+            # Point size
+            size: 11
+        ''
+      );
   };
 }

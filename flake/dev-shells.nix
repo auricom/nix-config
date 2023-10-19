@@ -1,6 +1,9 @@
-{ ... }:
-{
-  perSystem = { config, pkgs, ... }: {
+{...}: {
+  perSystem = {
+    config,
+    pkgs,
+    ...
+  }: {
     devShells = {
       default = pkgs.mkShellNoCC {
         name = "Nix-config";

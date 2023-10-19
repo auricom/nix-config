@@ -1,4 +1,9 @@
-{ lib, buildGoModule, fetchgit, mpv }:
+{
+  lib,
+  buildGoModule,
+  fetchgit,
+  mpv,
+}:
 buildGoModule rec {
   pname = "ff2mpv-go";
   version = "1.0.1";

@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  cfg = config.my.profiles.laptop;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.my.profiles.laptop;
+in {
   options.my.profiles.laptop = with lib; {
     enable = mkEnableOption "laptop profile";
   };

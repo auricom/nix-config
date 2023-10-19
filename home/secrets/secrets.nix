@@ -3,8 +3,7 @@ let
   keys = import ../../keys;
 
   inherit (keys) all;
-in
-{
+in {
   "homelab/kubeconfig.age".publicKeys = all;
   "homelab/minioconfig.json.age".publicKeys = all;
   "homelab/rclone.conf.age".publicKeys = all;
