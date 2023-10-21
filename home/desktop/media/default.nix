@@ -5,6 +5,7 @@
   ...
 }: let
   cfg = config.my.home.media;
+  # Create an overriden python that has our custom package
 in {
   imports = [
     ./calibre.nix
@@ -17,8 +18,8 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
+      (f.withPackages (ps: [ps.comictagger]))
       calibre
-      # TODO comictagger
       deadbeef-with-plugins
       flameshot
       mediainfo-gui

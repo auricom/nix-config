@@ -88,7 +88,7 @@ in {
 
         favorite-apps = [
           "org.gnome.Nautilus.desktop"
-          "Alacritty.desktop"
+          "kitty.desktop"
           "codium.desktop"
           "librewolf.desktop"
           "1password.desktop"

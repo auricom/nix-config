@@ -9,7 +9,7 @@
     ./nushell
     ./packages
     ./starship
-    ./zellij
+    # ./zellij
     ./zoxide
   ];
 }
