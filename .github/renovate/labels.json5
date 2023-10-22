@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "addLabels": "renovate",
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
@@ -16,14 +17,6 @@
     {
       "matchUpdateTypes": ["digest"],
       "addLabels": ["type/digest"]
-    },
-    {
-      "matchFileNames": ["(^|/)home/.+\\.nix$"],
-      "addLabels": ["renovate/fetchFromGitHub"]
-    },
-    {
-      "matchManagers": ["github-actions"],
-      "addLabels": ["renovate/github-action"]
     }
   ]
 }
