@@ -36,5 +36,7 @@ in {
       rustup
       inputs.alejandra.defaultPackage.x86_64-linux
     ];
+
+    virtualisation.virtualbox.enable = true;
   };
 }

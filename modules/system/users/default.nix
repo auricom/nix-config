@@ -34,6 +34,7 @@ in {
             "networkmanager" # wireless configuration
             "plugdev" # usage of ZSA keyboard tools
             "podman" # usage of `podman` socket
+            "vboxusers" # Virtualbox
             "video" # screen control
             "wheel" # `sudo` for the user.
           ];

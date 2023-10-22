@@ -63,7 +63,7 @@
 
                 # Download base configuration
 
-                nixos_url="https://raw.githubusercontent.com/auricom/nix-config/dummy-configuration.nix"
+                nixos_url="https://raw.githubusercontent.com/auricom/nix-config/main/dummy-configuration.nix"
 
                 # Download disko configuration
                 if ! curl --silent --location  "$nixos_url" --output /mnt/etc/nixos/configuration.nix ; then

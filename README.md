@@ -22,13 +22,25 @@
 - Create a custom NixOS install-iso `just iso`
 - Put `./result/iso/*` on a Ventoy USB key
 - Boot into the installer
-- Connect to the Wifi (optional) `wpa_passphrase <ssid> <passphrase>`
-- Execute the install script `install-system`
+- Connect to the Wifi (optional)
+- Execute the install script `sudo install-system <host>`
 - Reboot
 - Log into root account
 - Deploy agenix ssh key in `/etc/agenix/identity` and personal ssh key in `/home/<user>/.ssh/id_ed25519`
 - Install nix flakes `install-flakes`
 - Reboot
+
+## Wifi connection
+
+```
+wpa_cli
+> add_network
+> set_network 0 ssid <ssid>
+> set_network 0 psk <passphrase>
+> enable_network 0
+> save_config
+> quit
+```
 
 ## Resources
 * [nixos-hardware] - NixOS profiles to optimize settings for different hardware
