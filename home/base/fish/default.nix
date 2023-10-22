@@ -9,13 +9,13 @@
   catppuccin-fish = inputs.catppuccin-fish;
 
   plugin-autorepair-rev = "refs/tags/1.0.4"; # renovate: datasource=github-tags depName=jorgebucaran/autopair.fish versioning=semver
-  plugin-autorepair-sha256 = "sha256-s1o188TlwpUQEN3X5MxUlD/2CFCpEkWu83U9O+wg3VU="; # depName=jorgebucaran/autopair.fish
+  plugin-autorepair-hash = "sha256-s1o188TlwpUQEN3X5MxUlD/2CFCpEkWu83U9O+wg3VU="; # depName=jorgebucaran/autopair.fish
 
   plugin-fzf-rev = "refs/tags/v10.0"; # renovate: datasource=github-tags depName=PatrickF1/fzf.fish versioning=loose
-  plugin-fzf-sha256 = "sha256-CqRSkwNqI/vdxPKrShBykh+eHQq9QIiItD6jWdZ/DSM="; # depName=PatrickF1/fzf.fish
+  plugin-fzf-hash = "sha256-CqRSkwNqI/vdxPKrShBykh+eHQq9QIiItD6jWdZ/DSM="; # depName=PatrickF1/fzf.fish
 
   plugin-sponge-rev = "refs/tags/1.1.0"; # renovate: datasource=github-tags depName=meaningful-ooo/sponge versioning=semver
-  plugin-sponge-sha256 = "sha256-MdcZUDRtNJdiyo2l9o5ma7nAX84xEJbGFhAVhK+Zm1w="; # depName=meaningful-ooo/sponge
+  plugin-sponge-hash = "sha256-MdcZUDRtNJdiyo2l9o5ma7nAX84xEJbGFhAVhK+Zm1w="; # depName=meaningful-ooo/sponge
 in {
   options.my.home.fish = with lib; {
     enable = my.mkDisableOption "fish configuration";
@@ -57,7 +57,7 @@ in {
             owner = "jorgebucaran";
             repo = "autopair.fish";
             rev = "${plugin-autorepair-rev}";
-            sha256 = "${plugin-autorepair-sha256}";
+            sha256 = "${plugin-autorepair-hash}";
           };
         }
         # Interactively find and insert file paths, git commit hashes, and other entities
@@ -68,7 +68,7 @@ in {
             owner = "PatrickF1";
             repo = "fzf.fish";
             rev = "${plugin-fzf-rev}";
-            sha256 = "${plugin-fzf-sha256}";
+            sha256 = "${plugin-fzf-hash}";
           };
         }
         # Clean fish history from typos automatically
@@ -79,7 +79,7 @@ in {
             owner = "meaningful-ooo";
             repo = "sponge";
             rev = "${plugin-sponge-rev}";
-            sha256 = "${plugin-sponge-sha256}";
+            sha256 = "${plugin-sponge-hash}";
           };
         }
       ];

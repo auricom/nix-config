@@ -18,7 +18,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
-      (f.withPackages (ps: [ps.comictagger]))
+      auricom.comictagger
       calibre
       deadbeef-with-plugins
       flameshot
