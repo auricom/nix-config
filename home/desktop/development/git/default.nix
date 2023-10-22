@@ -8,8 +8,8 @@
   fish = config.my.home.fish;
   nushell = config.my.home.nushell;
 
-  plugin-breeze-rev = "7a4cd0abaf754a535155ff4ef24a169fc7c9b758"; # renovate datasource=git-refs depName=shinriyo/breeze
-  plugin-breeze-sha256 = "sha256-efjpQebYhqXZHalmxGH2J0f080SZBSOMaLdt3Xz5dNs="; # depName=shinriyo/breeze
+  plugin-breeze-rev = "7a4cd0abaf754a535155ff4ef24a169fc7c9b758";
+  plugin-breeze-hash = "sha256-efjpQebYhqXZHalmxGH2J0f080SZBSOMaLdt3Xz5dNs=";
 in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
@@ -203,7 +203,7 @@ in {
               owner = "shinriyo";
               repo = "breeze";
               rev = "${plugin-breeze-rev}";
-              sha256 = "${plugin-breeze-sha256}";
+              sha256 = "${plugin-breeze-hash}";
             };
           }
         ];
