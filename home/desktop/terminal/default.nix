@@ -1,7 +1,7 @@
 {lib, ...}: {
   imports = [
     ./alacritty.nix
-    ./kitty.nix
+    ./kitty
   ];
 
   options.my.home.terminal = with lib; {

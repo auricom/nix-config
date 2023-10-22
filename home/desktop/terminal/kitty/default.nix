@@ -27,7 +27,13 @@ in {
         scrollback_lines = 10000;
         enable_audio_bell = false;
         tab_bar_edge = "top"; # tab bar on top
+        tab_bar_style = "custom";
+        tab_bar_margin_width = "2";
+        tab_bar_margin_height = "5 0";
+        tab_title_template = "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{index}: {title}";
       };
     };
+
+    xdg.configFile."kitty/tab_bar.py".source = ./tab_bar.py;
   };
 }

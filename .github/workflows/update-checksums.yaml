@@ -21,7 +21,7 @@ jobs:
 
           gh api -H "Accept: application/vnd.github+json" /repos/auricom/nix-config/issues/${{ github.event.pull_request.number }}/labels | jq '[.[].name]' > /tmp/label_list
 
-          if grep -q "renovate/fetchFromGitHub" /tmp/label_list; then
+          if grep -q "checksums_needed" /tmp/label_list; then
             echo "check_checksums=true" >> $GITHUB_ENV
           fi
       - name: Checkout
@@ -45,8 +45,45 @@ jobs:
           echo "rev=${rev%\";}" >> $GITHUB_ENV
           echo "repo=$(echo "$dependency" | grep -o 'depName=[^ ]*' | cut -d= -f2)" >> $GITHUB_ENV
 
-      - name: Download archive
-        if: ${{ env.check_checksums == 'true' }}
+          if [[ "$dependency" grep *"fetchurl"* ]]; then
+            echo "fetch_url=true" >> $GITHUB_ENV
+            filename=$(git diff --name-only origin/main..HEAD "*.nix" | head -1)
+            line=$(cat $filename | grep url)
+            url=$(echo $line | awk -F ' ' '{ print $3 }')
+            url=${url#\"}
+            url=${url%\";}
+            url=${url/\${version}/${{ env.rev }}}
+            version_mod=${{ env.rev }}
+            version_mod=${version_mod/v/}
+            url=${url/\${version_mod}/$version_mod}
+            echo "url=$url" >> $GITHUB_ENV
+          fi
+
+      - name: fetchFromGitHub | Download file
+        if: ${{ env.check_checksums == 'true' && env.fetch_url != 'true' }}
+        run: |
+          #!/usr/bin/env bash
+          set -x
+
+          mkdir file
+          cd file
+          curl -sSL --fail --output ./file ${{ env.url }}
+          pwd
+          ls -lrta
+
+      - name: fetchFromGitHub| Get checksum
+        if: ${{ env.check_checksums == 'true' && env.fetch_url != 'true' }}
+        uses: addnab/docker-run-action@v3
+        with:
+          registry: gcr.io
+          image: nixos/nix
+          options: -v ${{ github.workspace }}:/work
+          run: |
+            nix --extra-experimental-features nix-command hash path /work/file/file > /work/checksum
+            ls -l /work
+
+      - name: fetchurl | Download archive
+        if: ${{ env.check_checksums == 'true' && env.fetch_url == 'true' }}
         run: |
           #!/usr/bin/env bash
           set -euxo pipefail
@@ -57,8 +94,8 @@ jobs:
           pwd
           ls -lrta
 
-      - name: Get checksum
-        if: ${{ env.check_checksums == 'true' }}
+      - name: fetchurl | Get checksum
+        if: ${{ env.check_checksums == 'true' && env.fetch_url == 'true' }}
         uses: addnab/docker-run-action@v3
         with:
           registry: gcr.io
@@ -78,7 +115,7 @@ jobs:
 
           sha_new=$(cat /home/runner/work/nix-config/nix-config/checksum)
 
-          line=$(cat $filename | grep depName=$repo | grep sha256)
+          line=$(cat $filename | grep depName=$repo | grep hash)
 
           sha_old=$(echo $line | awk -F ' ' '{ print $3 }')
           sha_old=${sha_old#\"}
