@@ -1,21 +1,22 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.my.home.browsers;
-  # ff2mpv.enable = config.my.home.media.enable;
+  media.enable = config.my.home.media.enable;
   # wayland = config.my.profiles.wayland;
 in {
   config.programs.firefox = lib.mkIf cfg.enable {
     enable = true;
 
-    # TODO
-    #   extraNativeMessagingHosts = with pkgs; ([ ]
-    #     # Watch videos using mpv
-    #     ++ lib.mkIf (ff2mpv.enable) auricom.ff2mpv-go
-    #   );
-    # };
+    package = pkgs.firefox.override {
+      extraNativeMessagingHosts = with pkgs; ([ ]
+        # Watch videos using mpv
+        ++ lib.optional media.enable auricom.ff2mpv-go
+      );
+    };
 
     # profiles = {
     #   default = {
@@ -31,7 +32,7 @@ in {
     #     #   refined-github
     #     #   sponsorblock
     #     #   ublock-origin
-    #     # ] ++ lib.mkIf (ff2mpv.enable) ff2mpv);
+    #     # ] ++ lib.mkIf (media.enable) ff2mpv);
 
     #     settings = {
     #       "browser.bookmarks.showMobileBookmarks" = true; # Mobile bookmarks

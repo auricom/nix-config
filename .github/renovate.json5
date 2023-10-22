@@ -45,6 +45,13 @@
       "depNameTemplate": "shinriyo/breeze",
       "packageNameTemplate": "https://github.com/shinriyo/breeze",
       "datasourceTemplate": "git-refs"
-    }
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)pkgs/.+\\.nix$"],
+      "matchStrings": [
+        "version = \"(?<currentValue>.*)\"; # renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) versioning=(?<versioning>.*?)"
+      ]
+    },
   ]
 }
