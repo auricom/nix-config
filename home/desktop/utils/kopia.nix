@@ -10,6 +10,7 @@ in {
     home.file.".kopiaignore".source = ./.kopiaignore;
 
     home.packages = with pkgs; [
+      auricom.kopia-ui
       kopia
     ];
   };

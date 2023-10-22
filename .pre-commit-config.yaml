@@ -6,7 +6,7 @@ repos:
         args: [--edit]
         stages: [commit]
   - repo: https://github.com/kamadorueda/alejandra
-    rev: 3.0.0
+    rev: 1.3.0
     hooks:
     - id: alejandra
   - repo: https://github.com/koalaman/shellcheck-precommit

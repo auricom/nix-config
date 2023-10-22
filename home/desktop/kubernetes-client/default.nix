@@ -12,7 +12,7 @@
   talhelper = inputs.talhelper;
 
   plugin-kubectl-rev = "ced676392575d618d8b80b3895cdc3159be3f628"; # renovate datasource=git-refs depName=evanlucas/fish-kubectl-completions
-  plugin-kubectl-sha256 = "sha256-OYiYTW+g71vD9NWOcX1i2/TaQfAg+c2dJZ5ohwWSDCc="; # depName=evanlucas/fish-kubectl-completions
+  plugin-kubectl-hash = "sha256-OYiYTW+g71vD9NWOcX1i2/TaQfAg+c2dJZ5ohwWSDCc="; # depName=evanlucas/fish-kubectl-completions
 in {
   options.my.home.kubernetes-client = with lib; {
     enable = mkEnableOption "kubernetes-client configuration";
@@ -65,7 +65,7 @@ in {
               owner = "evanlucas";
               repo = "fish-kubectl-completions";
               rev = "${plugin-kubectl-rev}";
-              sha256 = "${plugin-kubectl-sha256}";
+              sha256 = "${plugin-kubectl-hash}";
             };
           }
         ];
