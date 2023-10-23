@@ -3,6 +3,7 @@
   imports = [
     ./bluetooth
     ./desktop-core
+    ./homelab
     ./kubeops
     ./gtk
     ./laptop

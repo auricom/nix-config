@@ -78,7 +78,6 @@
               '';
             in {
               environment.systemPackages = with pkgs; [
-                unzip
                 install-system
               ];
               users.extraUsers.root.openssh.authorizedKeys.keys = [

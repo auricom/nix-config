@@ -9,5 +9,6 @@
     ./packages
     ./podman
     ./users
+    ./virtualbox
   ];
 }

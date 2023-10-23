@@ -2,7 +2,13 @@
   install-flakes = pkgs.writeShellScriptBin "install-flakes" ''
     set -euo pipefail
 
-    hostname=$(hostname)
+    # Check if there is exactly one argument
+    if [ "$#" -ne 1 ]; then
+      echo "ERROR - Please provide the target host as argument."
+      exit 1
+    fi
+
+    host=$1
 
     flakes_url="https://github.com/auricom/nix-config/archive/refs/heads/main.zip"
 
@@ -12,9 +18,9 @@
       exit 1
     fi
 
-    unzip /tmp/nix-config.zip -d /tmp/nix-config
+    unzip /tmp/nix-config.zip -d /tmp
 
-    nixos-rebuild switch --flake /tmp/nix-config.#$hostname
+    nixos-rebuild switch --flake /tmp/nix-config-main/.#$host
 
     echo "INFO - Done!"
   '';
@@ -82,6 +88,7 @@ in {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    unzip
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
