@@ -6,10 +6,7 @@
   ];
 
   # First sane reproducible version
-  home.stateVersion = "23.05";
-
-  # Who am I?
-  home.username = "claude";
+  home.stateVersion = "23.11";
 
   # Start services automatically
   systemd.user.startServices = "sd-switch";

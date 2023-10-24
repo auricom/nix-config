@@ -86,6 +86,7 @@ in {
 
       shellAbbrs = {
         # Nix
+        hms = "home-manager switch --flake ~/repositories/nix-config";
         nrs = "nixos-rebuild switch --flake ~/repositories/nix-config --use-remote-sudo";
         nrsbug = "nixos-rebuild switch --flake ~/repositories/nix-config --use-remote-sudo --show-trace --verbose";
         nfu = "nix flake update ~/repositories/nix-config";

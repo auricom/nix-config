@@ -7,6 +7,8 @@
     ./kubeops
     ./gtk
     ./laptop
+    ./nvidia
+    ./virt
     ./wireguard-client
     ./x
   ];

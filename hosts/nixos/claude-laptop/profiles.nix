@@ -18,6 +18,9 @@
     # Laptop specific configuration
     laptop.enable = true;
 
+    # Virt
+    virt.enable = true;
+
     # X configuration
     x.enable = true;
 

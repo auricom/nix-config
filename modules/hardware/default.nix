@@ -4,6 +4,7 @@
     ./bluetooth
     ./firmware
     ./networking
+    ./nvidia
     ./sound
     ./upower
   ];

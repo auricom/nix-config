@@ -9,7 +9,7 @@
 
   src = pkgs.fetchurl {
     url = "https://github.com/kopia/kopia/releases/download/${version}/KopiaUI-${version_mod}.AppImage";
-    hash = "sha256-B+NYYp2DCOtQEYvHA/KsThnhgYHMkkF7Ly2sGUg1uS4="; # renovate: datasource=github-tags depName=kopia/kopia
+    hash = "sha256-Q7NXxnDrOXTtALx8vPanrUugW2AnXJifvto5phehOFQ="; # renovate: datasource=github-tags depName=kopia/kopia
   };
 
   appimageContents = pkgs.appimageTools.extractType2 {inherit name src;};

@@ -5,12 +5,22 @@
       efi.canTouchEfiVariables = true;
     };
 
-    initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "rtsx_pci_sdmmc"];
+    initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
     initrd.kernelModules = [];
 
-    kernelModules = ["kvm-intel"];
+    kernelModules = [ "kvm-amd" ];
     extraModulePackages = [];
 
-    supportedFilesystems = ["btrfs"];
+    supportedFilesystems = [
+      "ext4"
+      "btrfs"
+      "xfs"
+      #"zfs"
+      "ntfs"
+      "fat"
+      "vfat"
+      "exfat"
+      "cifs" # mount windows share
+    ];
   };
 }

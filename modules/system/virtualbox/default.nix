@@ -11,8 +11,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    virtualisation.virtualbox = {
-      enable = true;
-    };
+    virtualisation.virtualbox.host.enable = true;
+    boot.kernelModules = ["kvm-amd" "kvm-intel"];
   };
 }

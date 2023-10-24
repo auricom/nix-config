@@ -13,7 +13,7 @@ in {
 
     dataDir = mkOption {
       type = types.str;
-      default = "$XDG_DATA_HOME/steamlib";
+      default = "$HOME/steamlib";
       example = "/mnt/steam/";
       description = ''
         Which directory should be used as HOME to run steam.

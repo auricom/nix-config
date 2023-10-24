@@ -2,6 +2,7 @@
 {...}: {
   imports = [
     ./boot
+    ./docker
     ./documentation
     ./language
     ./nfs-client

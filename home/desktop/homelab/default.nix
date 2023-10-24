@@ -7,6 +7,7 @@
 in {
   imports = [
     ./ssh-client.nix
+    ./git.nix
   ];
 
   options.my.home.homelab = with lib; {

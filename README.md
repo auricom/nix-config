@@ -30,7 +30,17 @@
 - Install nix flakes `install-flakes`
 - Reboot
 
-## Wifi connection
+## NixOS Upgrades
+
+- Update nix flakes dependencies `nfu` (fish) or `nix flake update ~/repositories/nix-config`
+- Rebuild `nrs` (fish) or `nixos-rebuild switch --flake ~/repositories/nix-config --use-remote-sudo`
+
+## Home-manager Upgrades
+
+- Update nix flakes dependencies `nfu` (fish) or `nix flake update ~/repositories/nix-config`
+- Rebuild `hms` (fish) or `home-manager switch --flake ~/repositories/nix-config`
+
+## CLI Wifi connection
 
 ```
 wpa_cli

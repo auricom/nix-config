@@ -16,7 +16,7 @@
 
   age.rekey = {
     # Obtain this using `ssh-keyscan` or by looking it up in your ~/.ssh/known_hosts
-    hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINRZVQ23ywGUy4PGssAVTlUt8a49FIpFDrW8VG2HWpqV";
+    hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINo7E0oAOzaq0XvUHkWvZSC8u1XxX8dDCq3bSyK2BCen";
     # The path to the master identity used for decryption. See the option's description for more information.
     masterIdentities = [/home/claude/.ssh/id_ed25519];
   };
