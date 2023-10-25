@@ -22,6 +22,7 @@ in {
       gh
       jq
       just
+      gnumake
       pgcli
       pre-commit
       sops

@@ -4,6 +4,8 @@
   ...
 }: let
   cfg = config.my.home.zellij;
+  fish = config.my.home.fish;
+  nushell = config.my.home.nushell;
 in {
   options.my.home.zellij = with lib; {
     enable = my.mkDisableOption "zellij configuration";
@@ -14,9 +16,11 @@ in {
       enable = true;
     };
 
-    programs.fish.interactiveShellInit = ''
-      eval (zellij setup --generate-auto-start fish | string collect)
-    '';
+    programs = {
+      fish.interactiveShellInit = lib.mkIf fish.enable ''eval (zellij setup --generate-auto-start fish | string collect)'';
+
+      nushell.extraConfig = lib.mkIf fish.enable ''use ${nushell-scripts}/custom-completions/zellij/zellij-completions.nu *'';
+    };
 
     home.sessionVariables = {
       # ZELLIJ_AUTO_ATTACH = "false";

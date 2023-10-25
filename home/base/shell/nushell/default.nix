@@ -28,7 +28,6 @@ in {
         use ${nushell-scripts}/custom-completions/git/git-completions.nu *
         use ${nushell-scripts}/custom-completions/nix/nix-completions.nu *
         use ${nushell-scripts}/custom-completions/man/man-completions.nu *
-        use ${nushell-scripts}/custom-completions/zellij/zellij-completions.nu *
       '';
     };
   };

@@ -2,6 +2,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.my.system.docker;
@@ -25,5 +26,9 @@ in {
         ];
       };
     };
+
+    environment.systemPackages = with pkgs; [
+      docker-compose
+    ];
   };
 }

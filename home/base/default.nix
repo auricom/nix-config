@@ -2,12 +2,11 @@
   imports = [
     ./bat
     ./btop
-    ./fish
     ./helix
     ./lsd
     ./neovim
-    ./nushell
     ./packages
+    ./shell
     ./starship
     # ./zellij
     ./zoxide
