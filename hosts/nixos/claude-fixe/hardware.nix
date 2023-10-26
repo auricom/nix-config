@@ -4,4 +4,6 @@
   ];
 
   fileSystems."/etc/agenix".neededForBoot = true;
+
+  time.hardwareClockInLocalTime = true;
 }

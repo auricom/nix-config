@@ -60,6 +60,7 @@ in {
           // {
             # Default configuration
             claude = system;
+            cdiarra = system;
           };
       in
         lib.mapAttrs mkHome allHosts;

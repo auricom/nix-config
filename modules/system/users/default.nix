@@ -30,6 +30,7 @@ in {
           shell = pkgs.fish;
           extraGroups = groupsIfExist [
             "audio" # sound control
+            "docker"
             "media" # access to media files
             "networkmanager" # wireless configuration
             "plugdev" # usage of ZSA keyboard tools
@@ -41,5 +42,17 @@ in {
         };
       };
     };
+
+    security.sudo.extraRules = [
+      {
+        users = [config.my.user.name];
+        commands = [
+          {
+            command = "ALL";
+            options = ["NOPASSWD"];
+          }
+        ];
+      }
+    ];
   };
 }

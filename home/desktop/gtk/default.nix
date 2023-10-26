@@ -57,10 +57,10 @@ in {
       #   };
     };
 
-    # home.file.".config/gtk-4.0/gtk.css".source = "${catppuccin_light_package}/share/themes/${catppuccin_light_name}/gtk-4.0/gtk.css";
-    # home.file.".config/gtk-4.0/gtk-dark.css".source = "${catppucin_dark_package}/share/themes/${catppuccin_dark_name}/gtk-4.0/gtk-dark.css";
+    # xdg.configFile."gtk-4.0/gtk.css".source = "${catppuccin_light_package}/share/themes/${catppuccin_light_name}/gtk-4.0/gtk.css";
+    # xdg.configFile."gtk-4.0/gtk-dark.css".source = "${catppucin_dark_package}/share/themes/${catppuccin_dark_name}/gtk-4.0/gtk-dark.css";
 
-    # home.file.".config/gtk-4.0/assets" = {
+    # xdg.configFile."gtk-4.0/assets" = {
     #   recursive = true;
     #   source = "${catppucin_dark_package}/share/themes/${catppuccin_dark_name}/gtk-4.0/assets";
     # };

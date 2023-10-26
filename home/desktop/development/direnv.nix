@@ -11,5 +11,12 @@ in {
     home.packages = with pkgs; [
       direnv
     ];
+
+    programs.fish.functions = lib.mkIf cfg.enable {
+      direnv-init = ''
+        echo "use nix" > .envrc
+        direnv allow
+      '';
+    };
   };
 }

@@ -8,6 +8,7 @@
   cfg = config.my.home.development;
 in {
   imports = [
+    ./direnv.nix
     ./git
     ./vscodium.nix
   ];

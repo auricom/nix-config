@@ -11,74 +11,48 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    services.rpcbind.enable = true;
+    networking.hosts."192.168.9.10" = ["truenas"];
 
-    systemd.mounts = let
-      commonMountOptions = {
-        type = "nfs";
-        mountConfig = {
-          Options = "noatime";
-        };
-      };
-    in [
-      (commonMountOptions
-        // {
-          what = "192.168.9.10:/mnt/storage/backups";
-          where = "/mnt/truenas/backups";
-        })
+    fileSystems."/mnt/truenas/backups" = {
+      device = "truenas:/mnt/storage/backups";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
 
-      (commonMountOptions
-        // {
-          what = "192.168.9.10:/mnt/storage/downloads";
-          where = "/mnt/truenas/downloads";
-        })
+    fileSystems."/mnt/truenas/downloads" = {
+      device = "truenas:/mnt/storage/downloads";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
 
-      (commonMountOptions
-        // {
-          what = "192.168.9.10:/mnt/storage/home-claude";
-          where = "/mnt/truenas/home/claude";
-        })
+    fileSystems."/mnt/truenas/home-claude" = {
+      device = "truenas:/mnt/storage/home/claude";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
 
-      (commonMountOptions
-        // {
-          what = "192.168.9.10:/mnt/storage/home-helene";
-          where = "/mnt/truenas/home/helene";
-        })
+    fileSystems."/mnt/truenas/home-helene" = {
+      device = "truenas:/mnt/storage/home/helene";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
 
-      (commonMountOptions
-        // {
-          what = "192.168.9.10:/mnt/storage/music";
-          where = "/mnt/truenas/music";
-        })
+    fileSystems."/mnt/truenas/music" = {
+      device = "truenas:/mnt/storage/music";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
 
-      (commonMountOptions
-        // {
-          what = "192.168.9.10:/mnt/storage/shared-documents";
-          where = "/mnt/truenas/shared-documents";
-        })
+    fileSystems."/mnt/truenas/shared-documents" = {
+      device = "truenas:/mnt/storage/shared-documents";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
 
-      (commonMountOptions
-        // {
-          what = "192.168.9.10:/mnt/storage/video";
-          where = "/mnt/truenas/video";
-        })
-    ];
-
-    systemd.automounts = let
-      commonAutoMountOptions = {
-        wantedBy = ["multi-user.target"];
-        automountConfig = {
-          TimeoutIdleSec = "600";
-        };
-      };
-    in [
-      (commonAutoMountOptions // {where = "/mnt/truenas/backups";})
-      (commonAutoMountOptions // {where = "/mnt/truenas/downloads";})
-      (commonAutoMountOptions // {where = "/mnt/truenas/home/claude";})
-      (commonAutoMountOptions // {where = "/mnt/truenas/home/helene";})
-      (commonAutoMountOptions // {where = "/mnt/truenas/music";})
-      (commonAutoMountOptions // {where = "/mnt/truenas/shared-documents";})
-      (commonAutoMountOptions // {where = "/mnt/truenas/video";})
-    ];
+    fileSystems."/mnt/truenas/video" = {
+      device = "truenas:/mnt/storage/video";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
   };
 }

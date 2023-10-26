@@ -23,6 +23,7 @@
 .local/share/[Tt]rash*/
 .local/share/baloo
 .local/share/containers
+.local/share/gnome-boxes
 .local/share/Steam
 .meteor/local/
 .meteor/packages-metadata/
@@ -71,3 +72,4 @@ Temp/
 Template/
 tmp/
 Videos/
+VirtualBox VMs/
