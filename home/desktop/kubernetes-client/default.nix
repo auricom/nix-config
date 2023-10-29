@@ -33,6 +33,7 @@ in {
       pv-migrate
       rclone
       talhelper.packages.x86_64-linux.default
+      talosctl
     ];
 
     programs = {
