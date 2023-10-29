@@ -126,4 +126,6 @@ $env.config = {
 
     direnv export json | from json | default {} | load-env
   }
+
+  source ~/.local/share/atuin/init.nu
 }

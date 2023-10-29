@@ -1,0 +1,25 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.my.home.terminal;
+
+  fish = config.my.home.fish;
+  nushell = config.my.home.nushell;
+in {
+  config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      atuin
+    ];
+
+    programs = {
+      fish.interactiveShellInit = lib.mkIf fish.enable ''atuin init fish | source'';
+    };
+
+    home.file.".local/share/atuin/init.nu".source = lib.mkIf nushell.enable ./init.nu;
+
+    age.secrets."atuin/config.toml".path = "$HOME/.config/atuin/config.toml";
+  };
+}
