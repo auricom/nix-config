@@ -14,12 +14,10 @@ in {
       atuin
     ];
 
-    programs = {
-      fish.interactiveShellInit = lib.mkIf fish.enable ''atuin init fish | source'';
+    programs.fish = lib.mkIf fish.enable {
+      interactiveShellInit = "atuin init fish | source";
     };
 
     home.file.".local/share/atuin/init.nu".source = lib.mkIf nushell.enable ./init.nu;
-
-    age.secrets."atuin/config.toml".path = "$HOME/.config/atuin/config.toml";
   };
 }
