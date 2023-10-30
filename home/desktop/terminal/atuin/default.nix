@@ -15,7 +15,7 @@ in {
     ];
 
     programs.fish = lib.mkIf fish.enable {
-      interactiveShellInit = "atuin init fish | source";
+      interactiveShellInit = "atuin init fish --disable-up-arrow | source";
     };
 
     home.file.".local/share/atuin/init.nu".source = lib.mkIf nushell.enable ./init.nu;
