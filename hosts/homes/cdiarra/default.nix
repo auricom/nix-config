@@ -1,10 +1,13 @@
 # Default home-manager configuration
-{ pkgs ,...}: let
+{pkgs, ...}: let
   myUserName = "cdiarra";
-in
-{
+in {
   home.username = myUserName;
-  home.homeDirectory = "/${if pkgs.stdenv.isDarwin then "Users" else "home"}/${myUserName}";
+  home.homeDirectory = "/${
+    if pkgs.stdenv.isDarwin
+    then "Users"
+    else "home"
+  }/${myUserName}";
   nixpkgs.config.allowUnfree = true;
   programs.home-manager.enable = true;
   programs.direnv.enable = true;
@@ -25,7 +28,7 @@ in
     git = {
       userEmail = "claude.diarra@ledger.fr";
       userName = "Claude DIARRA";
-      extraConfig.user.signingkey = "EBD67C69A0C7C65E";
+      extraConfig.user.signingkey = "/home/${myUserName}/.ssh/ldgid_ed25519.pub";
     };
   };
 }
