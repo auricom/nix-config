@@ -19,6 +19,7 @@ in {
       _1password-gui
       bitwarden
       joplin-desktop
+      slack
     ];
   };
 }
