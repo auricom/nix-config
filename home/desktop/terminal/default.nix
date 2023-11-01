@@ -1,7 +1,6 @@
 {lib, ...}: {
   imports = [
     ./alacritty.nix
-    ./atuin
     ./kitty
   ];
 

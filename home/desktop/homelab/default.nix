@@ -16,7 +16,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    # atuin
+    # atuin configuration
     age.secrets."atuin/config.toml".path = "$HOME/.config/atuin/config.toml";
 
     # kubeconfig

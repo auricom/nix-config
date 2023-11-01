@@ -4,12 +4,10 @@
   pkgs,
   ...
 }: let
-  cfg = config.my.home.terminal;
-
   fish = config.my.home.fish;
   nushell = config.my.home.nushell;
 in {
-  config = lib.mkIf cfg.enable {
+  config = {
     home.packages = with pkgs; [
       atuin
     ];
