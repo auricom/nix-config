@@ -96,5 +96,7 @@ in {
         nso = "nix-store --optimise";
       };
     };
+
+    programs.nix-index.enableFishIntegration = true;
   };
 }

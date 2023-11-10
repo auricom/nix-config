@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   imports = [
     ./atuin
     ./bat
@@ -12,4 +12,6 @@
     # ./zellij
     ./zoxide
   ];
+
+  config.programs.nix-index.enable = true;
 }
