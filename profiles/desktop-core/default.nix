@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.my.profiles.desktop-core;
@@ -10,6 +11,9 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    # Enable ledger
+    services.udev.packages = [pkgs.ledger-udev-rules];
+
     # Enable browsers
     my.home.browsers.enable = true;
 
