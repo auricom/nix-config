@@ -56,6 +56,8 @@ in {
       };
 
       fish = lib.mkIf fish.enable {
+        interactiveShellInit = "talosctl completion fish | source";
+
         shellAliases.k = "kubectl";
 
         plugins = [
