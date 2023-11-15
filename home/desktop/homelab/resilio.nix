@@ -50,23 +50,21 @@ in {
       '';
     };
 
-    systemd.user.services = {
-      "autostart-nix-rslsync" = {
-        Unit = {
-          Description = "Autostart Resilio Sync Nix App";
-          PartOf = "graphical-session.target";
-          After = "graphical-session.target";
-        };
-        Service = {
-          Type = "forking";
-          Restart = "yes";
-          ExecStart = [
-            "$HOME/.local/bin/resilio"
-          ];
-        };
-        Install = {
-          WantedBy = ["graphical-session.target"];
-        };
+    systemd.user.services.resilio = {
+      Unit = {
+        Description = "Resilio";
+        After = ["graphical-session-pre.target"];
+        PartOf = ["graphical-session.target"];
+      };
+
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.bash}/bin/bash /home/${config.home.username}/.local/bin/resilio";
+        RemainAfterExit = true;
+      };
+
+      Install = {
+        WantedBy = ["graphical-session.target"];
       };
     };
   };
