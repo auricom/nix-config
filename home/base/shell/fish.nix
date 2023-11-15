@@ -91,7 +91,7 @@ in {
         nrsbug = "nixos-rebuild switch --flake ~/repositories/nix-config --use-remote-sudo --show-trace --verbose";
         nfu = "nix flake update ~/repositories/nix-config";
         nh = "nix profile history --profile /nix/var/nix/profiles/system";
-        ngc = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d";
+        ngc = "sudo nix-collect-garbage --delete-older-than 14d";
         ngcf = "sudo nix store gc --debug";
         nso = "nix-store --optimise";
       };

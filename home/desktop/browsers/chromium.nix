@@ -14,6 +14,7 @@ in {
         "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark-reader
         "lpcccgcdjibejkgiaeijbmkpbnbkglkb" # form-history-control
         "beakmhbijpdhipnjhnclmhgjlddhidpe" # linkding
+        "pmcmeagblkinmogikoikkdjiligflglb" # privacy redirect
         "acmacodkjbdgmoleebolmdjonilkdbch" # rabby-wallet
         "hlepfoohegkhhmjieoechaddaejaokhf" # refined-github
         "mnjggcdmjocbbbhaepdhchncahnbgone" # sponsorblock
