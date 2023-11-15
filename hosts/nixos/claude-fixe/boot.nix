@@ -1,25 +1,25 @@
-{...}: {
+{pkgs, ...}: {
   boot = {
     loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
+      efi.canTouchEfiVariables = true;
+      timeout = 5;
       grub = {
         enable = true;
-        version = 2;
         device = "nodev";
         efiSupport = true;
-        extraEntries = ''
-          menuentry "Windows" {
-            insmod part_gpt
-            insmod fat
-            insmod search_fs_uuid
-            insmod chain
-            search --fs-uuid --set=root 3d44c763-8be4-481b-b1e9-2ab811fcda16
-            chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-          }
-        '';
+        useOSProber = true;
+        default = "nixos";
+        theme = pkgs.stdenv.mkDerivation {
+          pname = "distro-grub-themes";
+          version = "3.1";
+          src = pkgs.fetchFromGitHub {
+            owner = "AdisonCavani";
+            repo = "distro-grub-themes";
+            rev = "v3.1";
+            hash = "sha256-ZcoGbbOMDDwjLhsvs77C7G7vINQnprdfI37a9ccrmPs=";
+          };
+          installPhase = "cp -r customize/nixos $out";
+        };
       };
     };
 
