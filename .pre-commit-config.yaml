@@ -14,6 +14,6 @@ repos:
     hooks:
     - id: shellcheck
   - repo: https://github.com/JohnnyMorganz/StyLua
-    rev: v0.18.2
+    rev: v0.19.1
     hooks:
       - id: stylua # or stylua-system / stylua-github
