@@ -29,7 +29,7 @@ in
 
       substituteInPlace $out/share/applications/${pname}.desktop \
         --replace 'Icon=open-lens' 'Icon=${pname}' \
-        --replace 'Exec=AppRun' 'Exec=${pname} -disable-gpu'
+        --replace 'Exec=AppRun' 'Exec=${pname} --enable-features=UseOzonePlatform,WaylandWindowDecorations --ozone-platform-hint=auto'
     '';
 
     meta = with lib; {
