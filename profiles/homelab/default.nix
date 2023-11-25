@@ -13,6 +13,9 @@ in {
     # Enable homelab configuration.
     my.home.homelab.enable = true;
 
+    # Enable tailscale
+    my.services.tailscale.enable = true;
+
     # Enable virtualbox
     my.system.virtualbox.enable = true;
   };
