@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.my.home.homelab;
@@ -18,11 +19,6 @@ in {
   config = lib.mkIf cfg.enable {
     # atuin configuration
     age.secrets."atuin/config.toml".path = "$HOME/.config/atuin/config.toml";
-
-    # kubeconfig
-    age.secrets."homelab/kubeconfig" = {
-      path = "$HOME/.kube/config";
-    };
 
     # sops (flux)
     age.secrets."homelab/sops" = {
