@@ -15,8 +15,5 @@ in {
 
     # Enable tailscale
     my.services.tailscale.enable = true;
-
-    # Enable virtualbox
-    my.system.virtualbox.enable = true;
   };
 }

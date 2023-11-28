@@ -9,6 +9,9 @@
     # GTK theme configuration
     gtk.enable = true;
 
+    # Homelab
+    homelab.enable = true;
+
     # KubeOps
     kubeops.enable = true;
 
