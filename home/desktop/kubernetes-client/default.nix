@@ -24,6 +24,7 @@ in {
       fluxcd
       go-task
       kubectl
+      kubectx
       kubeconform
       kubernetes-helm
       helm-docs
