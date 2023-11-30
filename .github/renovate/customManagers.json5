@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)home/.+\\.nix$"],
+      "matchStrings": [
+        "refs/tags/(?<currentValue>.*)\"; # renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) versioning=(?<versioning>.*?)"
+      ]
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)home/.+\\.nix$"],
+      "matchStrings": ["plugin-kubectl-rev = \"(?<currentDigest>.*?)\";"],
+      "currentValueTemplate": "main",
+      "depNameTemplate": "evanlucas/fish-kubectl-completions",
+      "packageNameTemplate": "https://github.com/evanlucas/fish-kubectl-completions",
+      "datasourceTemplate": "git-refs"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["(^|/)pkgs/.+\\.nix$"],
+      "matchStrings": [
+        "version = \"(?<currentValue>.*)\"; # renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?) versioning=(?<versioning>.*?)"
+      ]
+    }
+  ]
+}
