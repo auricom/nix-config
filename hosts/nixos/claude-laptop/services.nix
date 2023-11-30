@@ -1,4 +1,3 @@
 {...}: {
-  my.services = {
-  };
+  my.services = {};
 }

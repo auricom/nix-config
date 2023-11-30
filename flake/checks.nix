@@ -10,11 +10,11 @@
 
       settings = {
         hooks = {
-          deadnix = {
+          alejandra = {
             enable = true;
           };
 
-          nixpkgs-fmt = {
+          deadnix = {
             enable = true;
           };
 

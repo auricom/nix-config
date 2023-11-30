@@ -116,7 +116,8 @@ in rec {
       acc = [(mod totVal 256)] ++ acc;
     };
     carried =
-      foldr carry {
+      foldr carry
+      {
         carry = n;
         acc = [];
       }

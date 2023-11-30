@@ -54,5 +54,13 @@ in {
       fsType = "nfs";
       options = ["x-systemd.automount" "noauto"];
     };
+
+    networking.hosts."192.168.9.13" = ["openmediavault"];
+
+    fileSystems."/mnt/openmediavault/frigate" = {
+      device = "openmediavault:/export/frigate";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
   };
 }

@@ -14,13 +14,13 @@
     tweaks = ["normal"];
     variant = "mocha";
   };
-  catppuccin_light_name = "Catppuccin-Latte-Standard-Blue-Light";
-  catppuccin_light_package = pkgs.catppuccin-gtk.override {
-    accents = ["blue"];
-    size = "standard";
-    tweaks = ["normal"];
-    variant = "latte";
-  };
+  # catppuccin_light_name = "Catppuccin-Latte-Standard-Blue-Light";
+  # catppuccin_light_package = pkgs.catppuccin-gtk.override {
+  #   accents = [ "blue" ];
+  #   size = "standard";
+  #   tweaks = [ "normal" ];
+  #   variant = "latte";
+  # };
 in {
   options.my.home.gtk = with lib; {
     enable = mkEnableOption "GTK configuration";

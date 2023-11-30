@@ -6,8 +6,6 @@
   ...
 }: let
   cfg = config.my.home.homelab;
-
-  host = builtins.getEnv "hostname";
 in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [

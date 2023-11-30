@@ -5,7 +5,6 @@
 }: let
   pname = "openlens";
   version = "6.5.2-366"; # renovate: datasource=github-tags depName=MuhammedKalkan/OpenLens versioning=semver nix=fetchurl
-  version_mod = builtins.replaceStrings ["v"] [""] version;
 
   src = fetchurl {
     url = "https://github.com/MuhammedKalkan/OpenLens/releases/download/v${version}/OpenLens-${version}.x86_64.AppImage";
