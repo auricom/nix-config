@@ -11,7 +11,7 @@ dmypy.json
 ~.swp
 
 # Direnv files
-.envrc
+# .envrc
 .direnv/
 
 # Editors
