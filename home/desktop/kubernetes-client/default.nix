@@ -27,6 +27,7 @@ in {
       kubectx
       kubeconform
       kubernetes-helm
+      krew
       helm-docs
       kustomize
       minio-client
@@ -57,7 +58,10 @@ in {
       };
 
       fish = lib.mkIf fish.enable {
-        interactiveShellInit = "talosctl completion fish | source";
+        interactiveShellInit = ''
+          talosctl completion fish | source
+          set -q KREW_ROOT; and set -gx PATH $PATH $KREW_ROOT/.krew/bin; or set -gx PATH $PATH $HOME/.krew/bin
+        '';
 
         shellAliases.k = "kubectl";
 
