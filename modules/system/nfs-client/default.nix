@@ -13,6 +13,12 @@ in {
   config = lib.mkIf cfg.enable {
     networking.hosts."192.168.9.10" = ["truenas"];
 
+    fileSystems."/mnt/truenas/apps" = {
+      device = "truenas:/mnt/storage/apps";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
+
     fileSystems."/mnt/truenas/backups" = {
       device = "truenas:/mnt/storage/backups";
       fsType = "nfs";
@@ -43,6 +49,12 @@ in {
       options = ["x-systemd.automount" "noauto"];
     };
 
+    fileSystems."/mnt/truenas/music_transcoded" = {
+      device = "truenas:/mnt/storage/music_transcoded";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
+
     fileSystems."/mnt/truenas/shared-documents" = {
       device = "truenas:/mnt/storage/shared-documents";
       fsType = "nfs";
@@ -51,14 +63,6 @@ in {
 
     fileSystems."/mnt/truenas/video" = {
       device = "truenas:/mnt/storage/video";
-      fsType = "nfs";
-      options = ["x-systemd.automount" "noauto"];
-    };
-
-    networking.hosts."192.168.9.13" = ["openmediavault"];
-
-    fileSystems."/mnt/openmediavault/frigate" = {
-      device = "openmediavault:/export/frigate";
       fsType = "nfs";
       options = ["x-systemd.automount" "noauto"];
     };
