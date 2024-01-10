@@ -9,6 +9,7 @@
         efiSupport = true;
         useOSProber = true;
         default = "nixos";
+        configurationLimit = 5;
         theme = pkgs.stdenv.mkDerivation {
           pname = "distro-grub-themes";
           version = "3.1";
