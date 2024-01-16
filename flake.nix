@@ -101,44 +101,13 @@
       url = "github:budimanjojo/talhelper";
     };
 
-    # catppuccin
-    catppuccin-btop = {
-      url = "github:catppuccin/btop";
-      flake = false;
-    };
-
-    catppuccin-bat = {
-      url = "github:catppuccin/bat";
-      flake = false;
-    };
-
-    catppuccin-alacritty = {
-      url = "github:catppuccin/alacritty";
-      flake = false;
-    };
-
-    catppuccin-helix = {
-      url = "github:catppuccin/helix";
-      flake = false;
-    };
-
-    catppuccin-starship = {
-      url = "github:catppuccin/starship";
-      flake = false;
-    };
-
-    catppuccin-k9s = {
-      url = "github:catppuccin/k9s";
-      flake = false;
+    nur-ryan4yin = {
+      url = "github:ryan4yin/nur-packages";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     catppuccin-fish = {
       url = "github:catppuccin/fish";
-      flake = false;
-    };
-
-    catppuccin-hyprland = {
-      url = "github:catppuccin/hyprland";
       flake = false;
     };
   };

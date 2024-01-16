@@ -6,10 +6,9 @@
   ...
 }: let
   cfg = config.my.home.packages;
-  catppuccin-helix = inputs.catppuccin-helix;
 in {
   config = lib.mkIf cfg.enable {
-    xdg.configFile."helix/themes".source = "${catppuccin-helix}/Catppuccin-macchiato.tmTheme";
+    xdg.configFile."helix/themes".source = "${inputs.nur-ryan4yin.packages."x86_64-linux".catppuccin-helix}/themes/default";
 
     programs.helix = {
       enable = true;

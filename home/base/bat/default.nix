@@ -6,7 +6,6 @@
   ...
 }: let
   cfg = config.my.home.bat;
-  catppuccin-bat = inputs.catppuccin-bat;
   fish = config.my.home.fish;
   nushell = config.my.home.nushell;
 in {
@@ -22,7 +21,10 @@ in {
         theme = "Catppuccin-macchiato";
       };
       themes = {
-        Catppuccin-macchiato = builtins.readFile "${catppuccin-bat}/Catppuccin-macchiato.tmTheme";
+        Catppuccin-macchiato = {
+          src = inputs.nur-ryan4yin.packages."x86_64-linux".catppuccin-bat;
+          file = "Catppuccin-macchiato.tmTheme";
+        };
       };
     };
 

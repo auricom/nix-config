@@ -12,7 +12,7 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    xdg.configFile."btop/themes/catppuccin_macchiato".source = "${catppuccin-btop}/themes/catppuccin_macchiato.theme";
+    xdg.configFile."btop/themes".source = "${inputs.nur-ryan4yin.packages."x86_64-linux".catppuccin-btop}/themes";
 
     # replacement of htop/nmon
     programs.btop = {

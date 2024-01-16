@@ -6,7 +6,6 @@
   ...
 }: let
   cfg = config.my.home.kubernetes-client;
-  catppuccin-k9s = inputs.catppuccin-k9s;
   fish = config.my.home.fish;
   nushell = config.my.home.nushell;
   talhelper = inputs.talhelper;
@@ -42,7 +41,7 @@ in {
       k9s = {
         enable = true;
         skin = let
-          skin_file = "${catppuccin-k9s}/dist/macchiato.yml"; # theme - catppuccin mocha
+          skin_file = "${inputs.nur-ryan4yin.packages."x86_64-linux".catppuccin-k9s}/dist/macchiato.yml"; # theme - catppuccin mocha
           skin_attr = builtins.fromJSON (
             builtins.readFile
             # replace 'base: &base "#1e1e2e"' with 'base: &base "default"'

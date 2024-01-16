@@ -5,7 +5,6 @@
   ...
 }: let
   cfg = config.my.home.starship;
-  catppuccin-starship = inputs.catppuccin-starship;
 in {
   options.my.home.starship = with lib; {
     enable = my.mkDisableOption "starship configuration";
@@ -85,7 +84,7 @@ in {
           };
           palette = "catppuccin_macchiato";
         }
-        // builtins.fromTOML (builtins.readFile "${catppuccin-starship}/palettes/macchiato.toml");
+        // builtins.fromTOML (builtins.readFile "${inputs.nur-ryan4yin.packages."x86_64-linux".catppuccin-starship}/palettes/macchiato.toml");
     };
   };
 }

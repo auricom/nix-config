@@ -6,10 +6,9 @@
   ...
 }: let
   cfg = config.my.home.terminal;
-  catppuccin-alacritty = inputs.catppuccin-alacritty;
 in {
   config = lib.mkIf cfg.enable {
-    xdg.configFile."alacritty/theme_catppuccin.yml".source = "${catppuccin-alacritty}/catppuccin-macchiato.yml";
+    xdg.configFile."alacritty/theme_catppuccin.yml".source = "${inputs.nur-ryan4yin.packages."x86_64-linux".catppuccin-alacritty}/catppuccin-macchiato.yml";
     programs.alacritty = {
       enable = true;
     };
