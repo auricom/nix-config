@@ -61,6 +61,12 @@ in {
       options = ["x-systemd.automount" "noauto"];
     };
 
+    fileSystems."/mnt/truenas/photo" = {
+      device = "truenas:/mnt/storage/photo";
+      fsType = "nfs";
+      options = ["x-systemd.automount" "noauto"];
+    };
+
     fileSystems."/mnt/truenas/video" = {
       device = "truenas:/mnt/storage/video";
       fsType = "nfs";
