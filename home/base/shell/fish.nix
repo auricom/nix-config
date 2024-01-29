@@ -94,6 +94,7 @@ in {
         ngc = "sudo nix-collect-garbage --delete-older-than 14d";
         ngcf = "sudo nix store gc --debug";
         nso = "nix-store --optimise";
+        swboot = "sudo /run/current-system/bin/switch-to-configuration boot";
       };
     };
 
