@@ -36,17 +36,21 @@
       type = "github";
       owner = "nix-community";
       repo = "home-manager";
-      ref = "master";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-      };
+      # ref = "nixos-unstable";
+      ref = "release-23.11";
+
+      # The `follows` keyword in inputs is used for inheritance.
+      # Here, `inputs.nixpkgs` of home-manager is kept consistent with the `inputs.nixpkgs` of the current flake,
+      # to avoid problems caused by different versions of nixpkgs dependencies.
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixpkgs = {
       type = "github";
       owner = "NixOS";
       repo = "nixpkgs";
-      ref = "nixos-unstable";
+      # ref = "nixos-unstable";
+      ref = "nixos-23.11";
     };
 
     nur = {
