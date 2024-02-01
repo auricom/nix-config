@@ -3,7 +3,7 @@
     disk = {
       sda = {
         type = "disk";
-        device = "/dev/sda";
+        device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_M.2_1TB_S415NB0M118925E";
         content = {
           type = "gpt";
           partitions = {
