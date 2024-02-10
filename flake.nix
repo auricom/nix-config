@@ -36,7 +36,7 @@
       type = "github";
       owner = "nix-community";
       repo = "home-manager";
-      # ref = "nixos-unstable";
+      # ref = "master";
       ref = "release-23.11";
 
       # The `follows` keyword in inputs is used for inheritance.
@@ -49,8 +49,14 @@
       type = "github";
       owner = "NixOS";
       repo = "nixpkgs";
-      # ref = "nixos-unstable";
       ref = "nixos-23.11";
+    };
+
+    nixpkgs-unstable = {
+      type = "github";
+      owner = "NixOS";
+      repo = "nixpkgs";
+      ref = "nixos-unstable";
     };
 
     nur = {
