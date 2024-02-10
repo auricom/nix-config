@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  inputs,
   ...
 }: let
   cfg = config.my.home.development;
@@ -9,7 +9,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.vscode = {
       enable = true;
-      package = pkgs.vscodium;
+      package = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.vscodium;
     };
   };
 }
