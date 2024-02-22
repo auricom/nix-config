@@ -10,5 +10,11 @@ in {
     home.packages = with pkgs; [
       librewolf
     ];
+
+    home.file.".librewolf/librewolf.overrides.cfg".text = ''
+      defaultPref("identity.fxaccounts.enabled", true);
+      defaultPref("privacy.clearOnShutdown.history", false);
+      defaultPref("privacy.clearOnShutdown.downloads", false);
+    '';
   };
 }
