@@ -1,45 +1,16 @@
-{pkgs, ...}: {
+{...}: {
   boot = {
     loader = {
+      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
-      timeout = 5;
-      grub = {
-        enable = true;
-        device = "nodev";
-        efiSupport = true;
-        useOSProber = true;
-        default = "nixos";
-        configurationLimit = 5;
-        theme = pkgs.stdenv.mkDerivation {
-          pname = "distro-grub-themes";
-          version = "3.1";
-          src = pkgs.fetchFromGitHub {
-            owner = "AdisonCavani";
-            repo = "distro-grub-themes";
-            rev = "v3.1";
-            hash = "sha256-ZcoGbbOMDDwjLhsvs77C7G7vINQnprdfI37a9ccrmPs=";
-          };
-          installPhase = "cp -r customize/nixos $out";
-        };
-      };
     };
 
-    initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
+    initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "rtsx_pci_sdmmc"];
     initrd.kernelModules = [];
 
-    kernelModules = ["kvm-amd"];
+    kernelModules = ["kvm-intel"];
     extraModulePackages = [];
 
-    supportedFilesystems = [
-      "ext4"
-      "btrfs"
-      "xfs"
-      #"zfs"
-      "ntfs"
-      "fat"
-      "vfat"
-      "exfat"
-      "cifs" # mount windows share
-    ];
+    supportedFilesystems = ["btrfs"];
   };
 }
