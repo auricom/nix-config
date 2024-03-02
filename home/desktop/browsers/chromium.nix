@@ -19,6 +19,7 @@ in {
         "hlepfoohegkhhmjieoechaddaejaokhf" # refined-github
         "mnjggcdmjocbbbhaepdhchncahnbgone" # sponsorblock
         "clngdbkpkpeebahjckkjfobafhncgmne" # stylus
+        "aiifbnbfobpmeekipheeijimdpnlpgpp" # terra station
         "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
       ];
     };
