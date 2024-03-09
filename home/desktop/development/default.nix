@@ -38,6 +38,8 @@ in {
       deadnix
       rustup
       inputs.alejandra.defaultPackage.x86_64-linux
+
+      distrobox
     ];
   };
 }
