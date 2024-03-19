@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -16,6 +17,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.ledger-live-desktop
       kopia
       p7zip
       unzip
