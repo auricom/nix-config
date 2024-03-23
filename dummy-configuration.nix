@@ -13,7 +13,7 @@
     flakes_url="https://github.com/auricom/nix-config/archive/refs/heads/main.zip"
 
     # Download disko configuration
-    if ! curl --silent --location  "$disko_url" --output /tmp/nix-config.zip ; then
+    if ! curl --silent --location  "$flakes_url" --output /tmp/nix-config.zip ; then
       echo "ERROR - Nix-config download failed. "
       exit 1
     fi

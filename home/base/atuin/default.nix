@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -9,7 +10,7 @@
 in {
   config = {
     home.packages = with pkgs; [
-      atuin
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.atuin
     ];
 
     programs.fish = lib.mkIf fish.enable {

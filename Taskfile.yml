@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+version: '3'
+
+tasks:
+  default:
+    silent: true
+    cmd: go-task --list-all
+
+  iso:
+    cmds:
+      - set -euo pipefail
+      - nix build .#install-iso
+    silent: true
+
+  check:
+    cmds:
+      - nix flake check
+    silent: true

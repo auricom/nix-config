@@ -19,15 +19,15 @@
 
 ## NixOS First install
 
-- Create a custom NixOS install-iso `just iso`
+- Create a custom NixOS install-iso `go-task iso`
 - Put `./result/iso/*` on a Ventoy USB key
 - Boot into the installer
 - Connect to the Wifi (optional) `wpa_passphrase <ssid> <passphrase>`
-- Execute the install script `install-system`
+- Execute the install script `install-system <hostname>`
 - Reboot
 - Log into root account
 - Deploy agenix ssh key in `/etc/agenix/identity` and personal ssh key in `/home/<user>/.ssh/id_ed25519`
-- Install nix flakes `install-flakes`
+- Install nix flakes `install-flakes <hostname>`
 - Reboot
 
 ## NixOS Upgrades

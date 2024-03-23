@@ -20,21 +20,21 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       auricom.openlens
-      fluxcd
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.fluxcd
       go-task
-      kubectl
-      kubectx
-      kubeconform
-      kubernetes-helm
-      krew
-      helm-docs
-      kustomize
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.kubectl
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.kubectx
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.kubeconform
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.kubernetes-helm
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.krew
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.helm-docs
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.kustomize
       minio-client
-      popeye
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.popeye
       pv-migrate
       rclone
       talhelper.packages.x86_64-linux.default
-      talosctl
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.talosctl
     ];
 
     programs = {

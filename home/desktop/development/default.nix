@@ -20,9 +20,9 @@ in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       age
+      envsubst
       gh
       jq
-      just
       gnumake
       pgcli
       pre-commit
@@ -37,6 +37,8 @@ in {
       deadnix
       rustup
       inputs.alejandra.defaultPackage.x86_64-linux
+
+      distrobox
     ];
   };
 }

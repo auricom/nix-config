@@ -3,7 +3,7 @@
     disk = {
       nvme1n1 = {
         type = "disk";
-        device = "/dev/nvme1n1";
+        device = "/dev/disk/by-id/nvme-Sabrent_A1850708125D02445956";
         content = {
           type = "gpt";
           partitions = {
