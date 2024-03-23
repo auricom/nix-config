@@ -19,7 +19,7 @@
 
 ## NixOS First install
 
-- Create a custom NixOS install-iso `just iso`
+- Create a custom NixOS install-iso `go-task iso`
 - Put `./result/iso/*` on a Ventoy USB key
 - Boot into the installer
 - Connect to the Wifi (optional) `wpa_passphrase <ssid> <passphrase>`

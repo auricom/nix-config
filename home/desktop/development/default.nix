@@ -23,7 +23,6 @@ in {
       envsubst
       gh
       jq
-      just
       gnumake
       pgcli
       pre-commit
