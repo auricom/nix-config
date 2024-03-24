@@ -10,6 +10,7 @@ in {
   imports = [
     ./direnv.nix
     ./git
+    ./trunk.nix
     ./vscodium.nix
   ];
 
