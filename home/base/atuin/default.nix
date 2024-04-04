@@ -18,5 +18,6 @@ in {
     };
 
     home.file.".local/share/atuin/init.nu".source = lib.mkIf nushell.enable ./init.nu;
+    home.file.".local/share/atuin/autocompletion.nu".source = lib.mkIf nushell.enable ./autocompletion.nu;
   };
 }

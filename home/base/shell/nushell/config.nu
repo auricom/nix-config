@@ -13,6 +13,7 @@ let red       = "#ed8796"
 let maroon    = "#ee99a0"
 let peach     = "#f5a97f"
 let green     = "#a6da95"
+let yellow    = "#eed49f"
 let teal      = "#8bd5ca"
 let sky       = "#91d7e3"
 let sapphire  = "#7dc4e4"
@@ -118,14 +119,18 @@ $env.config = {
   shell_integration: true # enables terminal markers and a workaround to arrow keys stop working issue
   render_right_prompt_on_last_line: false # true or false to enable or disable right prompt to be rendered on last line of the prompt.
 
-  hooks.env_change.PWD:
-  {
-    if (which direnv | is-empty) {
-        return
+  hooks: {
+    env_change: {
+      PWD: {
+        if (which direnv | is-empty) {
+            return
+        }
+        direnv export json | from json | default {} | load-env
+      }
     }
-
-    direnv export json | from json | default {} | load-env
   }
 
-  source ~/.local/share/atuin/init.nu
 }
+
+source ~/.local/share/atuin/init.nu
+source ~/.local/share/atuin/autocompletion.nu

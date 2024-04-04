@@ -15,6 +15,7 @@ in {
   config = lib.mkIf cfg.enable {
     programs.nushell = {
       enable = true;
+      package = inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.nushell;
       configFile.source = ./config.nu;
 
       shellAliases = {
@@ -25,6 +26,7 @@ in {
       # currently, nushell does not support conditional sourcing of files
       # https://github.com/nushell/nushell/issues/8214
       extraConfig = ''
+        use ${nushell-scripts}/aliasesa/git/git-aliases.nu *
         use ${nushell-scripts}/custom-completions/git/git-completions.nu *
         use ${nushell-scripts}/custom-completions/nix/nix-completions.nu *
         use ${nushell-scripts}/custom-completions/man/man-completions.nu *
