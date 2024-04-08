@@ -19,6 +19,7 @@ in {
     home.packages = with pkgs; [
       inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.ledger-live-desktop
       kopia
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.logseq
       p7zip
       unzip
       xz

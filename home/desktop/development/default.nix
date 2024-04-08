@@ -40,6 +40,7 @@ in {
       inputs.alejandra.defaultPackage.x86_64-linux
 
       distrobox
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.devbox
     ];
   };
 }

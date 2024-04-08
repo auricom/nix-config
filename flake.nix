@@ -120,6 +120,11 @@
       url = "github:catppuccin/fish";
       flake = false;
     };
+
+    dagger = {
+      url = "github:dagger/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: import ./flake inputs;
