@@ -1,15 +1,14 @@
 {
   config,
-  pkgs,
+  inputs,
   lib,
+  pkgs,
   ...
 }: let
   cfg = config.my.home.development;
   fish = config.my.home.fish;
   nushell = config.my.home.nushell;
-
-  plugin-breeze-rev = "7a4cd0abaf754a535155ff4ef24a169fc7c9b758";
-  plugin-breeze-hash = "sha256-efjpQebYhqXZHalmxGH2J0f080SZBSOMaLdt3Xz5dNs=";
+  nushell-scripts = inputs.nushell-scripts;
 in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
@@ -191,30 +190,48 @@ in {
       };
 
       fish = {
-        plugins = [
-          # breeze
-          # https://github.com/shinriyo/breeze
-          {
-            name = "breeze";
-            src = pkgs.fetchFromGitHub {
-              owner = "shinriyo";
-              repo = "breeze";
-              rev = "${plugin-breeze-rev}";
-              sha256 = "${plugin-breeze-hash}";
-            };
-          }
-        ];
+        functions = {
+          git-clean = ''
+            git fetch --prune
+            for branch in (git branch -vv | grep ': gone]' | awk '{print $1}')
+                git branch -D $branch
+            end
+          '';
+          wip = ''
+            git add -A
+            git commit --amend --no-edit
+            git push --force
+          '';
+        };
 
         shellAbbrs = {
+          ga = "git add";
+          gaa = "git add --all";
+          gbd = "git branch --delete --force";
+          gs = "git status --short";
+          gca = "git commit --amend --no-edit";
+          gcm = "git commit -m";
+          gm = "git merge --no-ff";
+          gps = "git push";
+          gpsf = "git push --force";
+          gpt = "git push --tags";
+          gpr = "git reset --hard";
+          gb = "git branch";
+          gco = "git checkout";
+          gcob = "git checkout -b";
+          gpl = "git pull";
+          gplom = "git pull origin main";
           glol = "git log --graph --decorate --pretty=oneline --abbrev-commit --topo-order";
           glola = "git log --graph --decorate --pretty=oneline --abbrev-commit --topo-order --all";
+          # remove files that are not under version control
+          gcf = "git clean -fd";
         };
       };
 
-      nushell.shellAliases = lib.mkIf nushell.enable {
-        glol = "git log --graph --decorate --pretty=oneline --abbrev-commit --topo-order";
-        glola = "git log --graph --decorate --pretty=oneline --abbrev-commit --topo-order --all";
-      };
+      nushell.extraConfig = lib.mkIf nushell.enable ''
+        use ${nushell-scripts}/aliases/git/git-aliases.nu *
+        use ${nushell-scripts}/custom-completions/git/git-completions.nu *
+      '';
     };
   };
 }

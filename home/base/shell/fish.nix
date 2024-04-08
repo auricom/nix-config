@@ -34,20 +34,6 @@ in {
         set -x LS_COLORS $(vivid generate catppuccin-macchiato)
       '';
 
-      functions = {
-        git-clean = ''
-          git fetch --prune
-          for branch in (git branch -vv | grep ': gone]' | awk '{print $1}')
-              git branch -D $branch
-          end
-        '';
-        wip = ''
-          git add -A
-          git commit --amend --no-edit
-          git push --force
-        '';
-      };
-
       plugins = [
         # Auto-complete matching pairs in the Fish command line
         # https://github.com/jorgebucaran/autopair.fish

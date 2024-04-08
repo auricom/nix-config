@@ -59,7 +59,7 @@ let catppuccin_theme = {
     shape_range: { fg: $overlay0 attr: b}
     shape_internalcall: { fg: $maroon attr: b}
     shape_external: $mauve
-    shape_externalarg: { fg: $red attr: b}
+    shape_externalarg: { fg: $sapphire}
     shape_literal: $flamingo
     shape_operator: $rosewater
     shape_signature: { fg: $red attr: b}
@@ -131,6 +131,3 @@ $env.config = {
   }
 
 }
-
-source ~/.local/share/atuin/init.nu
-source ~/.local/share/atuin/autocompletion.nu

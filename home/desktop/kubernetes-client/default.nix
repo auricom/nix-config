@@ -8,6 +8,7 @@
   cfg = config.my.home.kubernetes-client;
   fish = config.my.home.fish;
   nushell = config.my.home.nushell;
+  # nushell-scripts = inputs.nushell-scripts;
   talhelper = inputs.talhelper;
 
   plugin-kubectl-rev = "ced676392575d618d8b80b3895cdc3159be3f628"; # renovate datasource=git-refs depName=evanlucas/fish-kubectl-completions
@@ -79,7 +80,14 @@ in {
         ];
       };
 
-      nushell.shellAliases.k = lib.mkIf nushell.enable "kubectl";
+      nushell = lib.mkIf nushell.enable {
+        # extraConfig = ''
+        #   source ${nushell-scripts}/modules/argx/mod.nu
+        #   source ${nushell-scripts}/modules/kubernetes/mod.nu
+        # '';
+
+        shellAliases.k = lib.mkIf nushell.enable "kubectl";
+      };
     };
   };
 }

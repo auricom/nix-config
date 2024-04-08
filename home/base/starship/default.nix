@@ -16,6 +16,7 @@ in {
 
       enableBashIntegration = true;
       enableFishIntegration = true;
+      enableNushellIntegration = true;
 
       settings =
         {
@@ -55,6 +56,10 @@ in {
           };
           hostname = {
             ssh_symbol = " ";
+          };
+          kubernetes = {
+            disabled = false;
+            detect_files = ["k8s"];
           };
           memory_usage = {
             symbol = "󰍛 ";

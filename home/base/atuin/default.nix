@@ -13,8 +13,12 @@ in {
       inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.atuin
     ];
 
-    programs.fish = lib.mkIf fish.enable {
-      interactiveShellInit = "atuin init fish --disable-up-arrow | source";
+    programs = {
+      fish.interactiveShellInit = lib.mkIf fish.enable "atuin init fish --disable-up-arrow | source";
+      nushell.extraConfig = lib.mkIf nushell.enable ''
+        source ~/.local/share/atuin/init.nu
+        source ~/.local/share/atuin/autocompletion.nu
+      '';
     };
 
     home.file.".local/share/atuin/init.nu".source = lib.mkIf nushell.enable ./init.nu;
