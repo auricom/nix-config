@@ -3,7 +3,7 @@
   pkgs,
 }: let
   pname = "kopia-ui";
-  version = "v0.16.1"; # renovate: datasource=github-tags depName=kopia/kopia versioning=semver nix=fetchurl
+  version = "v0.17.0"; # renovate: datasource=github-tags depName=kopia/kopia versioning=semver nix=fetchurl
   version_mod = builtins.replaceStrings ["v"] [""] version;
   name = "${pname}-${version}";
 
